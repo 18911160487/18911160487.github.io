@@ -3,50 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="./vue.js"></script>
 </head>
 <body>
-	<div id="root"></div>
+	<div id="root">点击</div>
 
 	<script>
-
-		Vue.component("list-item", {
-			template: `<li>{{itemprop}}<span @click="handleDelete(index)">删除</span></li>`,
-			props: ["itemprop", "index"],
-			methods: {
-				handleDelete: function(index){
-					this.$emit("delete", index);
-				}
-			}
-		});
-
-		var app = new Vue({
-			el: "#root",
-			template: `
-				<div>
-					<input type="text" v-model="message"/>
-					<button @click="handleClick">提交</button>
-					<ul>
-						<list-item v-for="(item, index) in items" v-bind:itemprop="item" v-bind:index="index" @delete="handleDelete"></list-item>
-					</ul>
-				</div>
-				`,
-			data: {
-				message: "",
-				items: []
-			},
-			methods: {
-				handleClick: function() {
-					this.items.push(this.message);
-					this.message = '';
-				},
-				handleDelete: function(index){
-					this.items.splice(index, 1);
-				}
-			}
-		});
-
-
+		document.getElementById("root").onclick=function(){
+			alert("root");
+		}
 	</script>
 </body>
 </html>
