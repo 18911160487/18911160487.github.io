@@ -4,9 +4,10 @@ const GenerateAssetPlugin = require('generate-asset-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackDevServer = require('webpack-dev-server');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const path = require('path');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 let Mpc = require('./build/config/mpcFile.js');
 let mpcCss = require('./build/config/mpcCss.js');
@@ -24,11 +25,11 @@ let createServerConfig = function(compilation) {
 
 module.exports = {
 	entry: Object.assign({
-		build: ['./src/common/common.js']
+		//		build: ['./src/common/common.js'],
 	}, new Mpc().mpcJs),
 	output: {
 		path: __dirname + '/dist',
-		filename: 'js/[name]-[hash:5].js',
+		filename: 'js/[name].js',
 		//		publicPath: '/',
 	},
 	module: {
@@ -51,12 +52,14 @@ module.exports = {
 			{
 				test: /\.(png|jpg|gif|svg)$/i,
 				loader: [{
-					loader: 'url-loader',
-					query: {
-						limit: 8192,
-						name: 'img/[name].[ext]'
-					}
-				}],
+						loader: 'url-loader',
+						query: {
+							limit: 8192,
+							name: 'img/[name].[ext]'
+						}
+					},
+					'image-webpack-loader'
+				],
 				include: path.resolve(__dirname, 'src')
 			},
 			{
@@ -94,9 +97,18 @@ module.exports = {
 			allChunks: true,
 			ignoreOrder: true
 		}),
-		new CopyWebpackPlugin(new Mpc().mpcJson),
+		new CopyWebpackPlugin([{
+			from: './src/common/js/jquery.js',
+			to: './js/jquery.js'
+		}].concat(new Mpc().mpcJson)),
 		new CleanWebpackPlugin(['dist']),
-//		new webpack.optimize.UglifyJsPlugin(),
-//		new UglifyJSPlugin(),
+		new ImageminPlugin({
+			//			disable: process.env.NODE_ENV !== 'production',
+			pngquant: {
+				quality: '90-100'
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin(),
+		new UglifyJSPlugin(),
 	].concat(new Mpc().mpcHtml)
 }
