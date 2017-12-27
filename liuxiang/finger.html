@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<title>title</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			header {
+				width: 100%;
+				height: 50px;
+				background-color: #23C6C8;
+				margin-bottom: 40px;
+				color: #fff;
+				font-size: 18px;
+				line-height: 50px;
+				vertical-align: middle;
+				text-indent: 2em;
+			}
+			
+			.main {
+				width: 98%;
+				margin-left: 2%;
+			}
+			
+			.each-div {
+				width: 60px;
+				height: 60px;
+				text-align: center;
+				line-height: 90px;
+				vertical-align: middle;
+				float: left;
+				border: 1px solid #ccc;
+			}
+			
+			.main img {
+				height: 40px;
+			}
+			
+			.preview {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			
+			.preview-content {
+				position: relative;
+				top: 50px;
+				left: 0;
+				overflow: auto;
+			}
+			
+			.preview img {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>图片预览测试</header>
+		<div class="main">
+			<div class="each-div"><img src="images/icon_00.png" /></div>
+			<div class="each-div"><img src="images/icon_01.png" /></div>
+			<div class="each-div"><img src="images/icon_02.png" /></div>
+			<div class="each-div"><img src="images/icon_03.png" /></div>
+			<div class="each-div"><img src="images/icon_04.png" /></div>
+			<div class="each-div"><img src="images/icon_05.png" /></div>
+			<div class="each-div"><img src="images/icon_06.png" /></div>
+			<div class="each-div"><img src="images/icon_07.png" /></div>
+			<div class="each-div"><img src="images/icon_08.png" /></div>
+			<div class="each-div"><img src="images/icon_09.png" /></div>
+			<div class="each-div"><img src="images/icon_10.png" /></div>
+			<div class="each-div"><img src="images/icon_11.png" /></div>
+			<div class="each-div"><img src="images/icon_12.png" /></div>
+			<div class="each-div"><img src="images/icon_13.png" /></div>
+			<div class="each-div"><img src="images/icon_14.png" /></div>
+			<div class="each-div"><img src="images/icon_15.png" /></div>
+			<div class="each-div"><img src="images/icon_16.png" /></div>
+			<div class="each-div"><img src="images/icon_17.png" /></div>
+			<div class="each-div"><img src="images/icon_18.png" /></div>
+			<div class="each-div"><img src="images/icon_19.png" /></div>
+			<div class="each-div"><img src="images/icon_20.png" /></div>
+			<div class="each-div"><img src="images/icon_21.png" /></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="jq3_2_1.js"></script>
+	<script type="text/javascript">
+		var which;
+		var isPress = 0;
+		var isBiger = false;
+		var thisPicWidth, thisPicHeight;
+		var theSpaceSite;
+
+		$('.main').on('click', '.each-div', function() {
+			thisPicHeight = 0;
+			thisPicWidth = 0;
+			var mySrc = $(this).find('img').attr('src');
+			addPreview($(this).find('img').attr('src'));
+		});
+
+		$('body').on('click', '.preview', function() {
+			isBiger = false;
+			$('.preview').remove();
+		});
+
+		$('body').on('click', '.preview img', function(e) {
+			e.stopPropagation();
+		});
+
+		function addPreview(src) {
+			var node = $('<div class="preview" id="preview"><div class="preview-content"><img src="' + src + '"/></div></div>');
+			$('body').append(node);
+			changeSize();
+			setClick();
+		};
+
+		function changeSize() {
+			var bodyHeight = $(document).height();
+			var bodyWidth = $(document).width();
+			var imgHeightBefore = $('.preview').find('img').height();
+			var imgWidthBefore = $('.preview').find('img').width();
+			var contentHeight = bodyHeight - 100;
+			var contentWidth = bodyWidth;
+			$('.preview - content').width(contentWidth);
+			$('.preview - content').height(contentHeight);
+			var contentRatio = contentHeight / contentWidth;
+			var imageRatio = imgHeightBefore / imgWidthBefore;
+			if(contentRatio >= imageRatio) {
+				thisPicWidth = contentWidth;
+				thisPicHeight = Math.round(contentWidth * imageRatio);
+				$('.preview').find('img').width(thisPicWidth);
+				$('.preview').find('img').height(thisPicHeight);
+			} else {
+				thisPicHeight = contentHeight;
+				thisPicWidth = Math.round(contentHeight / imageRatio);
+				$('.preview').find('img').width(thisPicWidth);
+				$('.preview').find('img').height(thisPicHeight);
+			};
+			$('.preview').find('img').css('top', (contentHeight - thisPicHeight) / 2);
+			$('.preview').find('img').css('left', (contentWidth - thisPicWidth) / 2);
+		};
+
+		function setClick() {
+			var preview = document.getElementById('preview');
+			preview.ontouchstart = function(event) {
+				event.preventDefault();
+				var e = window.event || event;
+				if(isPress == 0) {
+					isPress = 1;
+					which = 'singleFinger';
+				} else {
+					if(e.touches[1]) {
+						which = 'doubleFinger';
+						var x1 = e.touches[1].clientX - this.offsetLeft,
+							x2 = e.touches[0].clientX - this.offsetLeft,
+							y1 = e.touches[1].clientY - this.offsetTop,
+							y2 = e.touches[0].clientY - this.offsetTop;
+						theSpaceSite = [{
+							'x': x2,
+							'y': y2
+						}, {
+							'x': x1,
+							'y': y1
+						}];
+					} else {
+						which = 'doubleClick';
+						var x = e.touches[0].clientX - this.offsetLeft;
+						var y = e.touches[0].clientY - this.offsetTop;
+						doubleClick(x, y);
+					};
+				};
+				setTimeout(yanChi, 500);
+			};
+
+			preview.ontouchmove = function(event) {
+				var e = window.event || event;
+				if(e.touches[1]) {
+					event.preventDefault();
+					isBiger = true;
+					var thisImageSite = {
+						'width': $('.preview img').width(),
+						'height': $('.preview img').height()
+					};
+					var thisImageScroll = {
+						'left': $('.preview - content').scrollLeft(),
+						'top': $('.preview - content').scrollTop()
+					};
+					var x0 = e.touches[0].clientX - this.offsetLeft,
+						x1 = e.touches[1].clientX - this.offsetLeft,
+						y0 = e.touches[0].clientY - this.offsetTop,
+						y1 = e.touches[1].clientY - this.offsetTop;
+					var thisDoubleMove = [{
+						'left': x0 - theSpaceSite[0].x,
+						'top': y0 - theSpaceSite[0].y
+					}, {
+						'left': x1 - theSpaceSite[1].x,
+						'top': y1 - theSpaceSite[1].y
+					}];
+					if(x0 >= x1) {
+						var bigerNumber = 0;
+					} else {
+						var bigerNumber = 1;
+					}
+					var midSitePlace = {
+						'x': Math.abs((x0 + x1) * 0.5),
+						'y': Math.abs((y0 + y1) * 0.5)
+					};
+					changeImageSize(thisImageSite, thisImageScroll, thisDoubleMove, bigerNumber, midSitePlace);
+					theSpaceSite = [{
+						'x': x0,
+						'y': y0
+					}, {
+						'x': x1,
+						'y': y1
+					}];
+				};
+			};
+		};
+
+		function yanChi() {
+			isPress = 0;
+		};
+
+		function doubleClick(x, y) {
+			if(isBiger == false) {
+				//将图像放大到两倍大小
+				isBiger = true;
+				$('.preview').find('img').height(thisPicHeight * 2);
+				$('.preview').find('img').width(thisPicWidth * 2);
+
+				//将图像放大后放到自己想要的位置上
+				var contentHeight = $('.preview - content').height();
+				var contentWidth = $('.preview - content').width();
+				if(contentHeight == thisPicHeight) {
+					$('.preview - content').scrollTop(y);
+					if(contentWidth < 2 * thisPicWidth) {
+						var scrollX = x - (contentWidth - thisPicWidth) / 2;
+						$('.preview - content').scrollLeft(scrollX);
+					};
+				} else if(contentWidth == thisPicWidth) {
+					$('.preview - content').scrollLeft(x);
+					if(contentHeight < 2 * thisPicHeight) {
+						var scrollY = y - (contentHeight - thisPicHeight) / 2;
+						$('.preview - content').scrollTop(scrollY);
+					};
+				} else {
+					alert('出了一个问题');
+				};
+			} else {
+				isBiger = false;
+				$('.preview').find('img').height(thisPicHeight);
+				$('.preview').find('img').width(thisPicWidth);
+			};
+		};
+
+		function changeImageSize(thisImageSite, thisImageScroll, thisDoubleMove, bigerNumber, midSitePlace) {
+			var finalMove;
+			var leftTotalMove = Math.abs(thisDoubleMove[0].left) + Math.abs(thisDoubleMove[1].left),
+				topTotalMove = Math.abs(thisDoubleMove[0].top) + Math.abs(thisDoubleMove[1].top);
+			if(leftTotalMove >= topTotalMove) {
+				finalMove = leftTotalMove;
+			} else {
+				finalMove = topTotalMove;
+			};
+			var leftMultiple = thisDoubleMove[0].left * thisDoubleMove[1].left,
+				topMultiple = thisDoubleMove[0].top * thisDoubleMove[1].top;
+			if(leftMultiple <= 0 && topMultiple <= 0) {
+				if((thisDoubleMove[0].left >= 0 && bigerNumber == 0) || (thisDoubleMove[0].left < 0 && bigerNumber == 1)) {
+					$('.preview img').width(thisImageSite.width + finalMove);
+					$('.preview img').height(thisImageSite.height + (finalMove * thisImageSite.width / thisImageSite.height));
+					$('.preview - content').scrollLeft(thisImageScroll.left + finalMove / 2);
+					$('.preview - content').scrollTop(thisImageScroll.top + (finalMove * thisImageSite.width / thisImageSite.height) / 2);
+				} else if((thisDoubleMove[0].left >= 0 && bigerNumber == 1) || (thisDoubleMove[0].left < 0 && bigerNumber == 0)) {
+					if(thisImageSite.width > thisPicWidth && thisImageSite.height > thisPicHeight) {
+						$('.preview img').width(thisImageSite.width - finalMove);
+						$('.preview img').height(thisImageSite.height - (finalMove * thisImageSite.width / thisImageSite.height));
+						$('.preview - content').scrollLeft(thisImageScroll.left - finalMove / 2);
+						$('.preview - content').scrollTop(thisImageScroll.top - (finalMove * thisImageSite.width / thisImageSite.height) / 2);
+					};
+				};
+			};
+		};
+	</script>
+
+</html>

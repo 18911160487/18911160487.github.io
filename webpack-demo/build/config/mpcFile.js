@@ -23,7 +23,7 @@ let Mpc = function() {
 			chunks: ['jq', o],
 			minify: {
 				removeComments: true, //删除html里的注释
-//				collapseWhitespace: true //删除html里的空格obj
+				collapseWhitespace: true //删除html里的空格obj
 			}
 		}))
 	}
@@ -33,10 +33,6 @@ let Mpc = function() {
 			to: './static/' + o + '.json'
 		});
 	}
-//	mpcJson.push({
-//		from: './src/common/js/jq.js',
-//		to: './js/jq.js'
-//	})
 	return {
 		'mpcJs': mpcJs,
 		'mpcHtml': mpcHtml,
