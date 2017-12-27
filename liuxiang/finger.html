@@ -98,6 +98,7 @@
 			<div class="each-div"><img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" /></div>
 			<div class="each-div"><img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" /></div>
 			<div class="each-div"><img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" /></div>
+			<div class="each-div"><img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" /></div>
 		</div>
 	</body>
 	<script type="text/javascript" src="jq3_2_1.js"></script>
@@ -111,7 +112,6 @@
 		$('.main').on('click', '.each-div', function() {
 			thisPicHeight = 0;
 			thisPicWidth = 0;
-			var mySrc = $(this).find('img').attr('src');
 			addPreview($(this).find('img').attr('src'));
 		});
 
@@ -138,8 +138,8 @@
 			var imgWidthBefore = $('.preview').find('img').width();
 			var contentHeight = bodyHeight - 100;
 			var contentWidth = bodyWidth;
-			$('.preview - content').width(contentWidth);
-			$('.preview - content').height(contentHeight);
+			$('.preview-content').width(contentWidth);
+			$('.preview-content').height(contentHeight);
 			var contentRatio = contentHeight / contentWidth;
 			var imageRatio = imgHeightBefore / imgWidthBefore;
 			if(contentRatio >= imageRatio) {
@@ -199,8 +199,8 @@
 						'height': $('.preview img').height()
 					};
 					var thisImageScroll = {
-						'left': $('.preview - content').scrollLeft(),
-						'top': $('.preview - content').scrollTop()
+						'left': $('.preview-content').scrollLeft(),
+						'top': $('.preview-content').scrollTop()
 					};
 					var x0 = e.touches[0].clientX - this.offsetLeft,
 						x1 = e.touches[1].clientX - this.offsetLeft,
@@ -246,19 +246,19 @@
 				$('.preview').find('img').width(thisPicWidth * 2);
 
 				//将图像放大后放到自己想要的位置上
-				var contentHeight = $('.preview - content').height();
-				var contentWidth = $('.preview - content').width();
+				var contentHeight = $('.preview-content').height();
+				var contentWidth = $('.preview-content').width();
 				if(contentHeight == thisPicHeight) {
 					$('.preview - content').scrollTop(y);
 					if(contentWidth < 2 * thisPicWidth) {
 						var scrollX = x - (contentWidth - thisPicWidth) / 2;
-						$('.preview - content').scrollLeft(scrollX);
+						$('.preview-content').scrollLeft(scrollX);
 					};
 				} else if(contentWidth == thisPicWidth) {
 					$('.preview - content').scrollLeft(x);
 					if(contentHeight < 2 * thisPicHeight) {
 						var scrollY = y - (contentHeight - thisPicHeight) / 2;
-						$('.preview - content').scrollTop(scrollY);
+						$('.preview-content').scrollTop(scrollY);
 					};
 				} else {
 					alert('出了一个问题');
@@ -285,14 +285,14 @@
 				if((thisDoubleMove[0].left >= 0 && bigerNumber == 0) || (thisDoubleMove[0].left < 0 && bigerNumber == 1)) {
 					$('.preview img').width(thisImageSite.width + finalMove);
 					$('.preview img').height(thisImageSite.height + (finalMove * thisImageSite.width / thisImageSite.height));
-					$('.preview - content').scrollLeft(thisImageScroll.left + finalMove / 2);
-					$('.preview - content').scrollTop(thisImageScroll.top + (finalMove * thisImageSite.width / thisImageSite.height) / 2);
+					$('.preview-content').scrollLeft(thisImageScroll.left + finalMove / 2);
+					$('.preview-content').scrollTop(thisImageScroll.top + (finalMove * thisImageSite.width / thisImageSite.height) / 2);
 				} else if((thisDoubleMove[0].left >= 0 && bigerNumber == 1) || (thisDoubleMove[0].left < 0 && bigerNumber == 0)) {
 					if(thisImageSite.width > thisPicWidth && thisImageSite.height > thisPicHeight) {
 						$('.preview img').width(thisImageSite.width - finalMove);
 						$('.preview img').height(thisImageSite.height - (finalMove * thisImageSite.width / thisImageSite.height));
-						$('.preview - content').scrollLeft(thisImageScroll.left - finalMove / 2);
-						$('.preview - content').scrollTop(thisImageScroll.top - (finalMove * thisImageSite.width / thisImageSite.height) / 2);
+						$('.preview-content').scrollLeft(thisImageScroll.left - finalMove / 2);
+						$('.preview-content').scrollTop(thisImageScroll.top - (finalMove * thisImageSite.width / thisImageSite.height) / 2);
 					};
 				};
 			};
