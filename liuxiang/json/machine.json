@@ -1,0 +1,21 @@
+{
+	"code": "0000",
+	"data": {
+		"shop": [{
+			"id": 1,
+			"name": "商品1",
+			"count": 1,
+			"price": 1
+		},{
+			"id": 2,
+			"name": "商品2",
+			"count": 2,
+			"price": 2
+		},{
+			"id": 3,
+			"name": "商品3",
+			"count": 3,
+			"price": 3
+		}]
+	}
+}

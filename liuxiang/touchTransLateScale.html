@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/border.css" />
+		<style type="text/css">
+			.container {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+			}
+			
+			.fixed-container {
+				position: fixed;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0, 0, 0, .3)
+			}
+			
+			.fixed-scale-container {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				width: 100%;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+			
+			.fixed-scale-container img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" />
+		</div>
+		<div class="fixed-container" style="display: none;">
+			<div class="fixed-scale-container">
+				<img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" />
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	function TouchTransLateScalePage() {
+		this.clickCount = 0; //判断单机还是是双击的计数器
+		this.singleFingerarr = [];
+		this.arr = [];
+	}
+	$.extend(TouchTransLateScalePage.prototype, {
+		init() {
+			this.bindEvents();
+		},
+		bindEvents() {
+			$(".container").on("click", $.proxy(this.handleContainerClick, this));
+			$(".fixed-scale-container").on("click", $.proxy(this.handleFixedScaleContentClick, this));
+			$(".fixed-scale-container").on("touchstart", $.proxy(this.handleFixedScaleContentTouchStart, this));
+			$(".fixed-scale-container").on("touchend", $.proxy(this.handleFixedScaleContentTouchEnd, this));
+			$(".fixed-scale-container").on("touchmove", $.proxy(this.handleFixedScaleContentTouchMOve, this));
+		},
+		handleContainerClick() {
+			$(".fixed-container").show();
+			$(".fixed-content").css({
+				"height": $(".fixed-scale-container").height()
+			})
+		},
+		handleFixedScaleContentClick() {
+			if(!this.clickCount) {
+				setTimeout(function() {
+					if(this.clickCount == 1) { //单机
+						this.handleSingleClick();
+					} else { //双击
+						this.handleDoubleClick();
+					}
+					this.clickCount = 0;
+				}.bind(this), 300) //规定时间内点击两次以上为双击
+			}
+			this.clickCount++;
+		},
+		handleSingleClick() {
+			$(".fixed-container").hide();
+		},
+		handleDoubleClick() {
+			var width = $(".fixed-scale-container").width();
+			var height = $(".fixed-scale-container").height();
+			var windowWidth = window.innerWidth;
+			var windowHeight = window.innerHeight;
+			$(".fixed-scale-container").css({
+				"width": windowHeight / height * width,
+				"height": windowHeight,
+				"left": -(width * windowWidth / windowHeight - width) /2,
+				"top": 0,
+				"transform": "translateY(0)",
+				"-webkit-transform": "translateY(0)"
+			})
+		},
+		handleFixedScaleContentTouchStart(e) {
+			//			console.log("handleFixedScaleContentTouchStart");
+		},
+		handleFixedScaleContentTouchEnd(e) {
+			this.singleFingerarr = [];
+			//			console.log("handleFixedScaleContentTouchEnd")
+		},
+		handleFixedScaleContentTouchMOve(e) {
+//			if(e.touches[0] && !e.touches[1]) {
+//				var oldMarginLeft = $(".fixed-scale-container").css("marginLeft");
+//				var oldMarginTop = $(".fixed-scale-container").css("marginTop");
+//				var x = e.touches[0].clientX;
+//				var y = e.touches[0].clientY;
+//				this.singleFingerarr.push({
+//					"x": e.touches[0].clientX,
+//					"y": e.touches[0].clientY
+//				});
+//				if(this.singleFingerarr.length < 2) {
+//					return;
+//				}
+//				var marginLeft = parseFloat(oldMarginLeft) + this.singleFingerarr[1].x - this.singleFingerarr[0].x;
+//				var marginTop = parseFloat(oldMarginTop) + this.singleFingerarr[1].y - this.singleFingerarr[0].y;
+//				var minMarginLeft = -($(".fixed-scale-container").width() - window.innerWidth);
+//				var minMarginTop = -($(".fixed-scale-container").height() - window.innerHeight);
+//				marginLeft = marginLeft >= 0 ? 0 : (marginLeft <= minMarginLeft ? minMarginLeft : marginLeft);
+//				marginTop = marginTop >= 0 ? 0 : (marginTop <= minMarginTop ? minMarginTop : marginTop);
+//				$(".fixed-scale-container").css({
+//					"marginLeft": marginLeft,
+//					//					"marginTop": marginTop  //暂时有问题
+//				})
+//				this.singleFingerarr.shift();
+//				//				console.log(this.singleFingerarr);
+//			} else if(e.touches[0] && e.touches[1]) {
+//				console.log(234);
+//			}
+		}
+	})
+	var touchTransLateScalePage = new TouchTransLateScalePage();
+	touchTransLateScalePage.init();
+</script>

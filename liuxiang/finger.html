@@ -66,7 +66,7 @@
 			}
 			
 			.preview img {
-				position: absolute;
+				position: absolute;transform: translate(),scale();
 			}
 		</style>
 	</head>
@@ -101,7 +101,7 @@
 			<div class="each-div"><img src="http://pic4.nipic.com/20091217/3885730_124701000519_2.jpg" /></div>
 		</div>
 	</body>
-	<script type="text/javascript" src="jq3_2_1.js"></script>
+	<script type="text/javascript" src="./js/jq3_2_1.js"></script>
 	<script type="text/javascript">
 		var which;
 		var isPress = 0;
@@ -162,6 +162,7 @@
 			preview.ontouchstart = function(event) {
 				event.preventDefault();
 				var e = window.event || event;
+				console.log(e.touches[0])
 				if(isPress == 0) {
 					isPress = 1;
 					which = 'singleFinger';
@@ -249,13 +250,13 @@
 				var contentHeight = $('.preview-content').height();
 				var contentWidth = $('.preview-content').width();
 				if(contentHeight == thisPicHeight) {
-					$('.preview - content').scrollTop(y);
+					$('.preview-content').scrollTop(y);
 					if(contentWidth < 2 * thisPicWidth) {
-						var scrollX = x - (contentWidth - thisPicWidth) / 2;
+						varscrollX = x - (contentWidth - thisPicWidth) / 2;
 						$('.preview-content').scrollLeft(scrollX);
 					};
-				} else if(contentWidth == thisPicWidth) {
-					$('.preview - content').scrollLeft(x);
+				}else if(contentWidth == thisPicWidth) {
+					$('.preview-content').scrollLeft(x);
 					if(contentHeight < 2 * thisPicHeight) {
 						var scrollY = y - (contentHeight - thisPicHeight) / 2;
 						$('.preview-content').scrollTop(scrollY);
