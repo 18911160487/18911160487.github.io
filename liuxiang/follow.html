@@ -87,13 +87,26 @@
 				},
 				windowLoadChangeDomStyle() {
 					this.containerListInput.eq(0).focus();
+					this.handleContainerListFocus(this.containerListInput.eq(0));
 				},
 				bindEvents() {
-//					this.containerListInput.on("input", $.proxy(this.handleContainerListInput, this));
+					this.containerListInput.on("input", $.proxy(this.handleContainerListInput, this));
 					this.containerListInput.on("keyup", $.proxy(this.handleContainerListKeyup, this));
+					this.containerListInput.on("focus", $.proxy(this.handleContainerListFocus, this));
 				},
 				handleContainerListKeyup(e){
-					alert(e.keyCode)
+					if(e.keyCode == 8){
+						var index = parseInt($(e.currentTarget).attr("index"));
+						if(this.containerListInput.eq(index).val() == ""){
+							if(index == 0){
+								return;
+							}
+							this.containerListInput.eq(index).blur();
+							this.containerListInput.eq(index-1).val("").focus();
+						}else{
+							this.containerListInput.eq(index).html("");							
+						}
+					}
 				},
 				handleContainerListInput(e) {
 					var index = parseInt($(e.currentTarget).attr("index"));
@@ -102,6 +115,13 @@
 						console.log("正在付款。。。");
 					}
 					this.containerListInput.eq(index + 1).focus();
+				},
+				handleContainerListFocus(e){
+					if(parseInt($(e[0]).attr("index")) == 0){
+						console.log(parseInt(e.attr("index")));
+					} else {
+						console.log(parseInt($(e.currentTarget).attr("index")));
+					}
 				}
 			})
 			new Page().init();

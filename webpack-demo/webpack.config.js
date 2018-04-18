@@ -26,6 +26,7 @@ let createServerConfig = function(compilation) {
 module.exports = {
 	entry: Object.assign({
 		//		build: ['./src/common/common.js'],
+//		iscroll: ['./src/common/js/iscroll.js'],
 	}, new Mpc().mpcJs),
 	output: {
 		path: __dirname + '/dist',
