@@ -30,6 +30,14 @@
 				padding: 0;
 			}
 			
+			.clear:after {
+				overflow: hidden;
+				display: block;
+				content: '';
+				clear: both;
+				height: 0;
+			}
+			
 			html {
 				font-size: 50px;
 			}
@@ -38,18 +46,42 @@
 			body {
 				width: 100%;
 				min-height: 100%;
+				background: #AAAAAA;
 			}
 			
 			.container {
+				width: 7rem;
+				margin: 0 auto;
+				background: #FFFFFF;
+			}
+			
+			.container-input {
+				position: relative;
+			}
+			
+			.container-input.border-bottom:before {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				content: '';
 				width: 100%;
-				text-align: center;
+				height: 1px;
+				background: #333333;
+				/*border-bottom: 1px solid #333333;*/
+			}
+			
+			.container-input div {
+				float: left;
+				font-size: .32rem;
+				line-height: .8rem;
 			}
 			
 			input {
-				width: 90%;
-				border: 1px solid saddlebrown;
+				float: left;
+				width: 5rem;
+				border: transparent;
 				font-size: .32rem;
-				line-height: 3;
+				height: .8rem;
 				outline: none;
 			}
 		</style>
@@ -57,7 +89,18 @@
 
 	<body>
 		<div class="container">
-			<input type="text" placeholder="请输入您的账号" />
+			<div class="container-input border-bottom clear">
+				<div>账号：</div>
+				<input type="text" placeholder="请输入您的账号" />
+			</div>
+			<div class="container-input border-bottom clear">
+				<div>账号：</div>
+				<input type="text" placeholder="请输入您的账号" />
+			</div>
+			<div class="container-input clear">
+				<div>账号：</div>
+				<input type="text" placeholder="请输入您的账号" />
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
