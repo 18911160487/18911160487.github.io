@@ -3,20 +3,64 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
+		<script type="text/javascript">
+			function htmlSize() {
+				var ww;
+				var maxw = 750;
+				var minw = 320;
+				if(window.innerWidth > maxw) {
+					ww = maxw;
+				} else if(window.innerWidth < minw) {
+					ww = minw;
+				} else {
+					ww = window.innerWidth;
+				}
+				document.getElementsByTagName('html')[0].style.fontSize = ww / maxw * 100 + 'px';
+			}
+			htmlSize();
+			window.onresize = function() {
+				htmlSize();
+			}
+		</script>
 		<style type="text/css">
-			*{
-				letter-spacing: 2px;
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 50px;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				min-height: 100%;
+			}
+			
+			.container {
+				width: 100%;
+				text-align: center;
+			}
+			
+			input {
+				width: 90%;
+				border: 1px solid saddlebrown;
+				font-size: .32rem;
+				line-height: 3;
+				outline: none;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			
+			<input type="text" placeholder="请输入您的账号" />
 		</div>
 	</body>
 	<script type="text/javascript">
-		
 	</script>
+
 </html>
