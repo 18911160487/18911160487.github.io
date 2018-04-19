@@ -30,56 +30,15 @@
 				padding: 0;
 			}
 			
-			.clear:after {
-				overflow: hidden;
-				display: block;
-				content: '';
-				clear: both;
-				height: 0;
-			}
-			
-			html {
-				font-size: 50px;
-			}
-			
-			html,
-			body {
-				width: 100%;
-				min-height: 100%;
-				background: #AAAAAA;
-			}
-			
 			.container {
-				width: 7rem;
-				margin: 0 auto;
-				background: #FFFFFF;
-			}
-			
-			.container-input {
-				position: relative;
-			}
-			
-			.container-input.border-bottom:before {
-				position: absolute;
-				left: 0;
-				bottom: 0;
-				content: '';
 				width: 100%;
-				height: 1px;
-				background: #333333;
-				/*border-bottom: 1px solid #333333;*/
-			}
-			
-			.container-input div {
-				float: left;
-				font-size: .32rem;
-				line-height: .8rem;
+				text-align: center;
+				font-size: 0;
 			}
 			
 			input {
-				float: left;
 				width: 5rem;
-				border: transparent;
+				border: 1px solid #333333;
 				font-size: .32rem;
 				height: .8rem;
 				outline: none;
@@ -89,21 +48,16 @@
 
 	<body>
 		<div class="container">
-			<div class="container-input border-bottom clear">
-				<div>账号：</div>
-				<input type="text" placeholder="请输入您的账号" />
-			</div>
-			<div class="container-input border-bottom clear">
-				<div>账号：</div>
-				<input type="text" placeholder="请输入您的账号" />
-			</div>
-			<div class="container-input clear">
-				<div>账号：</div>
-				<input type="text" placeholder="请输入您的账号" />
+			<div class="box">
+				<input class="btn" type="button" value="点击我" />
 			</div>
 		</div>
+		<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".container").on("click", function(e){
+				console.log(e.target.className+"->"+e.currentTarget.className)
+			})
+		</script>
 	</body>
-	<script type="text/javascript">
-	</script>
 
 </html>
