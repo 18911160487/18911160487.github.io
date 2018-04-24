@@ -23,6 +23,7 @@
 			window.onresize = function() {
 				htmlSize();
 			}
+			document.expando = false;
 		</script>
 		<style type="text/css">
 			* {
@@ -35,28 +36,16 @@
 				text-align: center;
 				font-size: 0;
 			}
-			
-			input {
-				width: 5rem;
-				border: 1px solid #333333;
-				font-size: .32rem;
-				height: .8rem;
-				outline: none;
-			}
 		</style>
 	</head>
 
 	<body>
-		<div class="container">
-			<div class="box">
-				<input class="btn" type="button" value="点击我" />
-			</div>
-		</div>
-		<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+		<iframe id="ifr" src="https://18911160487.github.io/liuxiang/city.html"></iframe>
+		
+		
+		<script src="js/jq1_2_3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(".container").on("click", function(e){
-				console.log(e.target.className+"->"+e.currentTarget.className)
-			})
+			console.log(document.getElementById('ifr').contentWindow.a)
 		</script>
 	</body>
 
