@@ -1,52 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<script type="text/javascript">
-			function htmlSize() {
-				var ww;
-				var maxw = 750;
-				var minw = 320;
-				if(window.innerWidth > maxw) {
-					ww = maxw;
-				} else if(window.innerWidth < minw) {
-					ww = minw;
-				} else {
-					ww = window.innerWidth;
-				}
-				document.getElementsByTagName('html')[0].style.fontSize = ww / maxw * 100 + 'px';
-			}
-			htmlSize();
-			window.onresize = function() {
-				htmlSize();
-			}
-			document.expando = false;
-		</script>
-		<style type="text/css">
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			.container {
-				width: 100%;
-				text-align: center;
-				font-size: 0;
-			}
-		</style>
 	</head>
-
 	<body>
-		<iframe id="ifr" src="https://18911160487.github.io/liuxiang/city.html"></iframe>
-		
-		
-		<script src="js/jq1_2_3.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			console.log(document.getElementById('ifr').contentWindow.a)
-		</script>
 	</body>
-
 </html>
