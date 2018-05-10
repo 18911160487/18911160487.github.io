@@ -1,4 +1,4 @@
-import Layer from '../../components/layer/layer.js';
+//import Layer from '../../components/layer/layer.js';
 import common from '../../css/common.css';
 import icon from '../../css/iconfont.css';
 import json from '../../static/ajax.json';
@@ -10,12 +10,12 @@ import json from '../../static/ajax.json';
 
 const Index = function() {
 	var dom = document.getElementById('app');
-	var layer = new Layer();
+	//var layer = new Layer();
 	var obj = {
 		"name": "刘向坡"
 	};
 	let str = `我是` + obj.name;
-	dom.innerHTML = layer.tpl;
+	//dom.innerHTML = layer.tpl;
 //	new CommonPage();
 	$(".app").css({"background": 'url(img/1.jpg)'})
 	$.ajax({
