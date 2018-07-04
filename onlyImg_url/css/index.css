@@ -1,0 +1,29 @@
+img {
+	float: left;
+}
+
+.clear:after {
+	display: block;
+	overflow: hidden;
+	clear: both;
+	height: 0;
+	content: '';
+}
+
+.clear {
+	zoom: 1;
+}
+
+body,
+div,
+.bgImg {
+	width: 100%;
+}
+
+div {
+	position: relative;
+}
+
+.innerBtn {
+	position: absolute;
+}
