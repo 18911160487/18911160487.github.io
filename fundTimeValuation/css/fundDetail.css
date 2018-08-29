@@ -1,0 +1,389 @@
+html {
+	background: #F5F5F9;
+}
+
+.container,
+.container-content {
+	overflow: hidden;
+	background: #F5F5F9;
+}
+
+.fund-loading {
+	position: absolute;
+	width: 100%;
+	height: 1.5rem;
+	text-align: center;
+}
+
+.fund-loading.changeStyle {
+	position: relative;
+}
+
+.fund-loading-update {
+	font-size: .24rem;
+	line-height: .56rem;
+	color: #666;
+}
+
+.fund-loading-state {
+	margin-bottom: .16rem;
+	font-size: .26rem;
+	line-height: 1;
+	height: .26rem;
+	color: #333333;
+}
+
+.fund-loading-gif {
+	display: inline-block;
+	width: .4rem;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.fund-number {
+	padding: .44rem .3rem .32rem;
+	background: #fff;
+}
+
+.fund-number-title {
+	width: 50%;
+}
+
+.fund-number-title+.fund-number-title {
+	box-sizing: border-box;
+	padding-left: .62rem;
+}
+
+.fund-number-title.border-left:before {
+	border-left: 1px solid #E8E8E8;
+}
+
+.fund-netValue-title,
+.fund-Increase-title,
+.fund-newNetValue-title,
+.fund-dayIncrease-title {
+	font-size: .24rem;
+	line-height: 1;
+	color: #808080;
+}
+
+.fund-Increase,
+.fund-dayIncrease {
+	margin-top: .4rem;
+}
+
+.fund-netValue-number,
+.fund-Increase-number,
+.fund-newNetValue-number,
+.fund-dayIncrease-number {
+	font-size: .48rem;
+	line-height: .48rem;
+	height: .48rem;
+	margin-top: .2rem;
+	font-weight: 500;
+}
+
+.fund-latest-estimates {
+	font-size: .2rem;
+	line-height: 1;
+	color: #808080;
+}
+
+.fund-detail {
+	position: relative;
+	margin: .2rem 0;
+	background: #fff;
+}
+
+.fund-detail-dataChange {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	padding: .24rem .3rem 0;
+	font-size: .24rem;
+	line-height: 1;
+	text-align: center;
+	background: #FFFFFF;
+	display: none;
+}
+
+.fund-detail-dataChange-Increase-number {
+	display: inline-block;
+	width: .8rem;
+}
+
+.fund-detail-title {
+	padding: .24rem 0 .9rem;
+}
+
+.fund-detail-estimates,
+.fund-detail-netValue,
+.fund-detail-Increase {
+	width: 33.33%;
+	font-size: .24rem;
+	line-height: 1;
+	text-align: center;
+}
+
+.fund-detail-estimates {
+	color: #565656;
+}
+
+.fund-detail-netValue-title,
+.fund-detail-Increase-title {
+	color: #808080;
+}
+
+.fund-detail-netValue-number {
+	color: #2E2E2E;
+}
+
+.fund-detail-data {
+	position: relative;
+}
+
+.fund-detail-data-left {
+	width: 18%;
+	height: 100%;
+	position: absolute;
+	left: 0%;
+	top: 0;
+	z-index: 9999;
+}
+
+.fund-detail-data-bottom {
+	width: 77%;
+	height: .4rem;
+	position: absolute;
+	left: 65px;
+	bottom: 0;
+	color: #808080;
+	font-size: .2rem;
+	line-height: 2;
+}
+
+.fund-detail-data-bottom div {
+	float: left;
+	width: 33.33%;
+}
+
+.fund-detail-data-container {
+	width: 98%;
+	height: 3.4rem;
+	margin: 0 auto;
+}
+
+.fund-detail-reference-resources {
+	padding: .12rem 0 .32rem;
+	font-size: .24rem;
+	line-height: 1;
+	color: #808080;
+	text-align: center;
+}
+
+.fund-foresight {
+	padding: .28rem .3rem 0;
+	background: #fff;
+}
+
+.fund-foresight-maxTitle {
+	font-size: .28rem;
+	line-height: 1;
+	color: #2E2E2E;
+}
+
+.fund-foresight-eachTimeSlot {
+	padding: 0 .1rem;
+	font-size: .24rem;
+	line-height: .28rem;
+	color: #808080;
+}
+
+.fund-foresight-eachTimeSlot.changeColor {
+	color: #2E2E2E;
+	font-weight: 500;
+}
+
+.fund-foresight-eachTimeSlot+.fund-foresight-eachTimeSlot {
+	border-left: 1px solid #808080;
+}
+
+.fund-foresight-people {
+	margin: .42rem 0 .1rem;
+	font-size: .24rem;
+	line-height: 1;
+	height: .24rem;
+	overflow: hidden;
+}
+
+.fund-foresight-Bullish-state {
+	margin-right: .1rem;
+	color: #F4333C;
+}
+
+.fund-foresight-bearish-state {
+	margin-left: .1rem;
+	color: #1c9a00;
+}
+
+.fund-foresight-Bullish-people,
+.fund-foresight-bearish-people {
+	color: #2E2E2E;
+}
+
+.fund-foresight-state {
+	height: .86rem;
+	border-bottom-left-radius: .43rem;
+	border-top-right-radius: .43rem;
+	position: relative;
+	overflow: hidden;
+	background: url(../img/foresightBullishSpeed_green.png) left top repeat;
+}
+
+.fund-foresight-BullishSpeed {
+	width: 0%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #fd575f url(../img/foresightBullishSpeed.png) right top no-repeat;
+	background-size: auto 100%;
+}
+
+.fund-foresight-Bullish-speed {
+	height: 100%;
+}
+
+.fund-foresight-bearish,
+.fund-foresight-Bullish {
+	font-size: .24rem;
+	line-height: 1;
+	height: .23rem;
+	overflow: hidden;
+}
+
+.fund-foresight-Bullish-stateControl,
+.fund-foresight-bearish-stateControl {
+	width: .86rem;
+	height: .86rem;
+	position: absolute;
+	top: 0;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.fund-foresight-Bullish-stateControl {
+	left: 0;
+}
+
+.fund-foresight-bearish-stateControl {
+	right: 0;
+}
+
+.fund-foresight-Bullish-container,
+.fund-foresight-bearish-container,
+.fund-foresight-Bullish-container img,
+.fund-foresight-bearish-container img {
+	width: 100%;
+	height: 100%;
+	transform-origin: center;
+}
+
+.fund-foresight-Bullish-number,
+.fund-foresight-bearish-number {
+	position: absolute;
+	top: 0;
+	font-size: .24rem;
+	line-height: .86rem;
+	color: #FFFFFF;
+}
+
+.fund-foresight-Bullish-number {
+	left: .86rem;
+}
+
+.fund-foresight-bearish-number {
+	right: .86rem;
+}
+
+.fund-foresight-desc {
+	font-size: .24rem;
+	line-height: 3;
+	height: .72rem;
+	color: #808080;
+	margin-bottom: .06rem;
+}
+
+.fund-file-bg {
+	width: 100%;
+}
+
+.fund-bottom-fixed {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+.fund-bottom-fixed.border-top:before {
+	border-top: 1px solid #e8e8e8;
+}
+
+.fund-buy-btn {
+	font-size: .32rem;
+	line-height: .88rem;
+	text-align: center;
+}
+
+.fund-Fixed-investment-btn {
+	color: #1d8eea;
+	background: #FFFFFF;
+}
+
+.fund-buy-btn {
+	color: #1d8eea;
+	background: #ffffff;
+	font-weight: 500;
+}
+
+.fund-copyright-title {
+	font-size: .24rem;
+	line-height: .64rem;
+	color: #979797;
+	text-align: center;
+}
+
+.fund-copyright-desc {
+	padding: 0 .4rem;
+	font-size: .22rem;
+	line-height: 1.5;
+	color: #b3b3b3;
+	text-align: justify;
+	padding-bottom: .24rem;
+}
+
+.toast {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0);
+	display: none;
+}
+
+.toast div {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	font-size: .3rem;
+	line-height: 2;
+	white-space: nowrap;
+	padding: 0 .3rem;
+	text-align: center;
+	background: #333;
+	border-radius: .08rem;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}

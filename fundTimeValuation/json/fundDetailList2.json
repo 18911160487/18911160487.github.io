@@ -1,0 +1,52 @@
+{
+	"data": {
+		"orgId": "CHINAAMCIF",
+		"time": "20180822132152",
+		"extension": "",
+		"bizDate": "2018-08-22",
+		"estimateList": [
+			{
+				"estimate": "0.7320",
+				"forecastValue": "0.00002903",
+				"forecastGrowth": "0.00%",
+				"time": "13:21",
+				"fundCode": "001052",
+				"fundName": "华夏中证500ETF联接",
+				"netValue": "0.6400",
+				"netValueDate": "2018-05-17",
+				"netValueIncrease": "-0.47%"
+			}, {
+				"estimate": "0.7630",
+				"forecastValue": "0.0",
+				"forecastGrowth": "0.00%",
+				"time": "13:21",
+				"fundCode": "001051",
+				"fundName": "华夏上证50ETF联接A",
+				"netValue": "0.9080",
+				"netValueDate": "2018-05-17",
+				"netValueIncrease": "-0.55%"
+			}, {
+				"estimate": "1.8012",
+				"forecastValue": "-0.01180731",
+				"forecastGrowth": "-0.65%",
+				"time": "13:21",
+				"fundCode": "000021",
+				"fundName": "华夏优势增长混合",
+				"netValue": "1.7010",
+				"netValueDate": "2018-05-17",
+				"netValueIncrease": "-0.82%"
+			}, {
+				"estimate": "10.3652",
+				"forecastValue": "-0.10276959",
+				"forecastGrowth": "-0.98%",
+				"time": "13:21",
+				"fundCode": "000011",
+				"fundName": "华夏大盘精选混合",
+				"netValue": "13.6360",
+				"netValueDate": "2018-05-17",
+				"netValueIncrease": "-1.20%"
+			}
+		]
+	},
+	"code": "0000"
+}

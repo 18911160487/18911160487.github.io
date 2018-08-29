@@ -32,17 +32,47 @@
 				list-style: none;
 			}
 			
+			.container {
+				width: 6.4rem;
+				height: 1.84rem;
+				background: #aaa;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.container-scale {
+				width: 3.8rem;
+				height: .24rem;
+				position: absolute;
+				left: 50%;
+				bottom: .6rem;
+				transform: translateX(-50%);
+			}
+			
+			.container-scale li {
+				width: .04rem;
+				position: absolute;
+				bottom: 0;
+				background: #dbe5f2;
+			}
+			.range-input{
+				width: 101.5%;
+				height: .68rem;
+				position: absolute;
+				left: 0;
+				top: -.55rem;
+				z-index: 1;
+			}
 			input[type=range] {
-				width: 100%;
 				-webkit-appearance: none;
-				background: #E9F3F7;
-				border-radius: 10px;
-				margin: 0.5rem 0 0.78rem;
+				background: rgba(0,0,0,0);
+				/*border-radius: 10px;*/
+				/*margin: 0.5rem 0 0.78rem;*/
 			}
 			
 			input[type=range]::-webkit-slider-runnable-track {
 				height: 3px;
-				border-radius: 10px;
+				/*border-radius: 10px;*/
 				-webkit-appearance: none
 			}
 			
@@ -53,77 +83,46 @@
 			
 			input[type=range]::-webkit-slider-thumb {
 				-webkit-appearance: none;
-				height: 0.46rem;
-				width: 0.46rem;
-				margin-top: -0.2rem;
-				background: #73C2F0;
+				height: 0.68rem;
+				width: 0.05rem;
+				background: #f00;
 				border-radius: 50%;
 				border: 0;
 			}
-		</style>
+		</style> 
 	</head>
 
 	<body>
-
-		<input type="range" class="rangeInput" />
+		<div class="container">
+			<ul class="container-scale containerScale">
+				<input type="range" class="rangeInput range-input" />
+			</ul>
+		</div>
 
 		<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var html = "";
+			for(var i = 0; i < 21; i++) {
+				html += `<li style="height:${i%5==0?".24rem":".18rem"};left:${i*5}%"></li>`
+			}
+			$(".containerScale").append(html)
+
 			window.onload = function() {
 				$('.rangeInput').RangeSlider({
 					min: 0,
 					max: 100,
-					step: 4,
-					range: 0,
-					callback: change
+					step: 5,
+					range: 50,
 				});
 			};
 			$.fn.RangeSlider = function(cfg) {
-				console.log(cfg)
-				this.sliderCfg = {
-					min: cfg && !isNaN(parseFloat(cfg.min)) ? Number(cfg.min) : null,
-					max: cfg && !isNaN(parseFloat(cfg.max)) ? Number(cfg.max) : null,
-					step: cfg && Number(cfg.step) ? cfg.step : 1,
-					range: cfg && Number(cfg.range) ? cfg.range : 0,
-					callback: cfg && cfg.callback ? cfg.callback : null,
-					value: cfg && cfg.value ? cfg.value : 15
-				};
-
-				var $input = $(this);
-				var min = this.sliderCfg.min;
-				var max = this.sliderCfg.max;
-				var step = this.sliderCfg.step;
-				var range = this.sliderCfg.range;
-				var callback = this.sliderCfg.callback;
-
-				$input.attr('min', min)
-					.attr('max', max)
-					.attr('step', step)
-					.attr('value', range);
-
-				if(range < 10) {
-					range = range + 0.2;
-				}
-				$input.css('background', 'linear-gradient( to right,#7CC8F4 ' + range + '%, #E9F3F7 0%)');
-				$input.on("input", function(e) {
-					$input.attr('value', this.value);
-					var theValue = '';
-					theValue = parseInt(this.value);
-					console.log(theValue)
-					if(theValue < 5) {
-						theValue += theValue + 0.3
-					}
-					$input.css('background', 'linear-gradient( to right,#7CC8F4 ' + theValue + '%, #E9F3F7 0%)');
-					if($.isFunction(callback)) {
-						callback(this);
-					}
+				$(this).attr('min', cfg.min).attr('max', cfg.max).attr('step', cfg.step).attr('value', cfg.range);
+				$(this).css('background', 'linear-gradient( to right,rgba(0,0,0,0) ' + cfg.range + '%, rgba(0,0,0,0) 0%)');
+				$(this).on("input", function(e) {
+					console.log(this.value)
+					$(this).attr('value', this.value).css('background', 'linear-gradient( to right,rgba(0,0,0,0) ' + this.value + '%, rgba(0,0,0,0) 0%)');
 				});
 			};
-			var change = function($input) {
-				var payAmount = 15 + ($input.value) / 20 * 5;
-				$('#numberOfYears').html(payAmount);
-				userTaxAge = payAmount;
-			}
 		</script>
 	</body>
 

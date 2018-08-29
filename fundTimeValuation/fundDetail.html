@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="common/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="common/css/border.css" />
+		<link rel="stylesheet" type="text/css" href="common/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/fundDetail.css" />
+		<title></title>
+		<script src="common/js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/FortunePlatform.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var fundDetailTile = JSON.parse(localStorage.getItem("fundDetailTile"));
+			var fortunePlatform = new FortunePlatform().setTitle(fundDetailTile.fundName, fundDetailTile.fundCode);
+		</script>
+	</head>
+
+	<body>
+		<div class="fund-loading fundLoading hide">
+			<div class="fund-loading-update">最新时间：今天<span class="fundLoadingUpdateTime"></span></div>
+			<div class="fund-loading-state fundLoadingState">下拉刷新</div>
+			<div class="fund-loading-gif fundLoadingGif">
+				<img style="float: left; width: 100%; height: 100%" src="img/Refresh.gif" />
+			</div>
+		</div>
+		<div class="container" id="container">
+			<div class="container-content containerContent">
+				<div class="fund-number fundNumber clear">
+					<div class="fund-number-title fl">
+						<div class="fund-netValue">
+							<div class="fund-netValue-title">估算净值 （<span class="fundNetValueTime"></span>）</div>
+							<div class="fund-netValue-number fundNetValueNumber"></div>
+						</div>
+						<div class="fund-Increase">
+							<div class="fund-Increase-title">估算涨幅</div>
+							<div class="fund-Increase-number fundIncreaseNumber"></div>
+						</div>
+					</div>
+					<div class="fund-number-title border-left fl">
+						<div class="fund-newNetValue">
+							<div class="fund-newNetValue-title">最新净值 （<span class="fundNewNetValueTime"></span>）</div>
+							<div class="fund-newNetValue-number fundNewNetValueNumber"></div>
+						</div>
+						<div class="fund-dayIncrease">
+							<div class="fund-dayIncrease-title">日涨幅</div>
+							<div class="fund-dayIncrease-number fundDayIncreaseNumber"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="fund-detail fundDetail">
+					<div class="fund-detail-title clear">
+						<div class="fund-detail-estimates fundDetailEstimates fl"></div>
+						<div class="fund-detail-netValue fl clear">
+							<span class="fund-detail-netValue-title">估算净值：</span>
+							<span class="fund-detail-netValue-number fundDetailNetValueNumber"></span>
+						</div>
+						<div class="fund-detail-Increase fl clear">
+							<span class="fund-detail-Increase-title">估算涨幅：</span>
+							<span class="fund-detail-Increase-number fundDetailIncreaseNumber"></span>
+						</div>
+					</div>
+
+					<div class="fund-detail-dataChange fundDetailDataChange clear">
+						<div class="fund-detail-dataChange-time fundDetailDataChangeTime fl"></div>
+						<div class="fund-detail-dataChange-Increase fr clear">
+							<span class="fund-detail-dataChange-Increase-title">估算涨幅：</span>
+							<span class="fund-detail-dataChange-Increase-number fundDDCINumber"></span>
+						</div>
+
+					</div>
+
+					<div class="fund-detail-data">
+						<div class="fund-detail-data-container fundDetailDataContainer" id="fundDetailDataContainer"></div>
+						<div class="fund-detail-data-left"></div>
+						<div class="fund-detail-data-bottom">
+							<div style="text-align: left;">9:30</div>
+							<div style="text-align: center;">11:30/13:00</div>
+							<div style="text-align: right;">15:00</div>
+						</div>
+					</div>
+
+					<div class="fund-detail-reference-resources">估值收益仅供参考，实际涨幅以基金净值为准</div>
+				</div>
+
+				<div class="fund-foresight fundForesight">
+					<div class="fund-foresight-title clear">
+						<div class="fund-foresight-maxTitle fl">大家眼光</div>
+						<div class="fund-foresight-timeSlot fr">
+							<div class="fund-foresight-eachTimeSlot fundForesightEachTimeSlot fl changeColor">今日</div>
+							<div class="fund-foresight-eachTimeSlot fundForesightEachTimeSlot fl">近7日</div>
+							<div class="fund-foresight-eachTimeSlot fundForesightEachTimeSlot fl">近30日</div>
+							<div class="fund-foresight-eachTimeSlot fundForesightEachTimeSlot fl">近一年 </div>
+						</div>
+					</div>
+					<div class="fund-foresight-people clear">
+						<div class="fund-foresight-Bullish fundForesightBullish fl clear">
+							<div class="fund-foresight-Bullish-state fundForesightBullishState fl">看好</div>
+							<!--<div class="fund-foresight-Bullish-people fl fundForesightBullishPeople"></div>-->
+						</div>
+						<div class="fund-foresight-bearish fundForesightBearish fr clear">
+							<div class="fund-foresight-bearish-state fundForesightBearishState fr">看空</div>
+							<!--<div class="fund-foresight-bearish-people fr fundForesightBearishPeople"></div>-->
+						</div>
+					</div>
+					<div class="fund-foresight-state">
+						<div class="fund-foresight-BullishSpeed fundForesightBullishSpeed">
+							<!--<div class="fund-foresight-Bullish-speed"></div>-->
+						</div>
+						<div class="fund-foresight-Bullish-stateControl">
+							<div class="fund-foresight-Bullish-container fundForesightBullishContainer">
+								<img src="img/bullish_weixuanzhong.png" />
+							</div>
+						</div>
+						<div class="fund-foresight-bearish-stateControl">
+							<div class="fund-foresight-bearish-container fundForesightBearishContainer">
+								<img src="img/bearish_weixuanzhong.png" />
+							</div>
+						</div>
+						<div class="fund-foresight-Bullish-number fundForesightBullishNumber"></div>
+						<div class="fund-foresight-bearish-number fundForesightBearishNumber"></div>
+					</div>
+					<div class="fund-foresight-desc fundForesightDesc"></div>
+				</div>
+				<div class="fund-copyright">
+					<div class="fund-copyright-title">本页面由华夏基金管理有限公司提供</div>
+					<div class="fund-copyright-desc">
+						此净值估算方法基于基金历史持仓，实际净值可能存在较大差异，不能作为投资人投资基金的依据， 投资人使用估算净值做出的投资决策，管理人不承担任何责任，实际涨跌幅轻易基金净值为准。
+					</div>
+				</div>
+				<div class="fund-file-bg fundFileBg"></div>
+			</div>
+		</div>
+		<div class="toast" style="display: none;"></div>
+		<div class="fund-bottom-fixed border-top fundBottomFixed clear">
+			<div class="fund-buy-btn fundBuyBtn">买入</div>
+		</div>
+		<div class="abnormal clear" style="display: none;">
+			<img class="fl" src="img/abnormal.png" />
+			<div class="abnormal-refresh abnormalRefresh"></div>
+		</div>
+
+		<script src="common/js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="common/js/echart.js"></script>
+		<!--<script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/ContainerHighcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fundDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

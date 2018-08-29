@@ -1,0 +1,22 @@
+{
+	"data": {
+		"valuationVoteCountVos": [
+			{
+				"goodVote": 3,
+				"badVote": 5
+			}, {
+				"goodVote": 1,
+				"badVote": 2
+			}, {
+				"goodVote": 2,
+				"badVote": 3
+			}, {
+				"goodVote": 3,
+				"badVote": 4
+			}
+		],
+		"vote": "2",
+		"voteAndNetValue": ""
+	},
+	"code": "0000"
+}
