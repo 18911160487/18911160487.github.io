@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.fl{
+				float: left;
+			}
+			.container {
+				width: 100%;
+				height: 3rem;
+				background: #E0E0E0;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.picture-total {
+				height: 100%;
+				position: absolute;
+				left: 0%;
+				top: 0;
+			}
+			
+			.picture {
+				height: 100%;
+				font-size: .6rem;
+				line-height: 3rem;
+				text-align: center;
+			}
+			
+			.brn-total {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: .2rem;
+				text-align: center;
+			}
+			
+			.btn {
+				display: inline-block;
+				width: .5rem;
+				background: #aaa;
+				border-radius: 50%;
+				margin: 0 .1rem;
+				font-size: .32rem;
+				line-height: .5rem;
+				text-align: center;
+			}
+			
+			.btn.curr {
+				background: #007AFF;
+			}
+			
+			.left-btn,
+			.right-btn {
+				width: .5rem;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: #00AAEE;
+				font-size: .32rem;
+				line-height: .6rem;
+				text-align: center;
+			}
+			
+			.left-btn {
+				left: 0;
+			}
+			
+			.right-btn {
+				right: 0;
+			}
+		</style>
+		<title>我的轮播图</title>
+	</head>
+
+	<body>
+		<div class="container">
+
+			<!--<div class="picture-total pictureTotal clear">
+				<div class="picture fl">我是第一张图片</div>
+				<div class="picture fl">我是第二张图片</div>
+				<div class="picture fl">我是第三张图片</div>
+				<div class="picture fl">我是第四张图片</div>
+				<div class="picture fl">我是第五张图片</div>
+			</div>
+			
+			<div class="brn-total brnTotal">
+				<div class="btn">1</div>
+				<div class="btn">2</div>
+				<div class="btn">3</div>
+				<div class="btn">4</div>
+				<div class="btn">5</div>
+			</div>
+			
+			<div class="left-btn leftBtn">‹</div>
+			<div class="right-btn rightBtn">›</div>-->
+
+		</div>
+
+		<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function Page(container) {
+				this.container = container;
+				this.timer = null;
+				this.speed = 3000;
+				this.index = 0;
+				this.init();
+			}
+
+			$.extend(Page.prototype, {
+				init() {
+					this.getPictureMsg();
+					this.pictureLook();
+					this.bindEvents();
+				},
+				getPictureMsg() {
+					$.ajax({
+						url: "json/picture.json",
+						async: false,
+						success: $.proxy(this.getPictureMsgSucc, this),
+						error: $.proxy(this.getPictureMsgErorr, this),
+					});
+				},
+				getPictureMsgSucc(res) {
+					console.log(res)
+					if(res.code == "0000") {
+						var width = window.innerWidth;
+						var pictureList = res.data.pictureList;
+						this.container.html(`
+				<div class="picture-total pictureTotal clear" style="width: ${width * (pictureList.length + 1)}px"></div>
+				<div class="brn-total brnTotal"></div>
+				<div class="left-btn leftBtn">‹</div>
+				<div class="right-btn rightBtn">›</div>`);
+						this.pictureTotal = this.container.find(".pictureTotal");
+						this.brnTotal = this.container.find(".brnTotal");
+						this.leftBtn = this.container.find(".leftBtn");
+						this.rightBtn = this.container.find(".rightBtn");
+						var pictureTotalHtml = "";
+						var brnTotalHtml = "";
+						for(var i = 0; i < pictureList.length; i++) {
+							pictureTotalHtml += `<div class="picture fl" style="width: ${width}px">${pictureList[i].src}</div>`;
+							brnTotalHtml += `<div class="btn ${i==0 ? "curr" : ""}">${i+1}</div>`;
+						}
+						pictureTotalHtml += `<div class="picture fl" style="width: ${width}px">${pictureList[0].src}</div>`;
+						this.pictureTotal.html(pictureTotalHtml);
+						this.brnTotal.html(brnTotalHtml);
+						this.pictureList = this.pictureTotal.find(".picture");
+						this.width = this.pictureList.eq(0).width();
+						this.btnList = this.brnTotal.find(".btn");
+					}
+				},
+				getPictureMsgErorr() {
+					console.log("error");
+				},
+				pictureLook() {
+					this.timer = setInterval($.proxy(this.pictureLookFun, this), this.speed);
+				},
+				pictureLookFun() {
+					this.index++;
+					var left = -this.pictureTotal.width() / this.pictureList.length * (this.pictureList.length - 1) + "px";
+					if(this.index < 0) {
+						this.index = this.pictureList.length - 2;
+						this.pictureTotal.css("left", left);
+						this.btnList.eq(this.pictureList.length - 1).addClass("curr").siblings().removeClass("curr");
+					}
+					if(this.index >= this.pictureList.length) {
+						this.index = 1;
+					}
+					this.pictureTotal.animate({
+						"left": -this.width * this.index
+					}, this.speed - 500, function() {
+						this.btnList.eq(this.index).addClass("curr").siblings().removeClass("curr");
+						if(this.pictureTotal.css("left") == left) {
+							this.pictureTotal.css("left", 0);
+							this.btnList.eq(this.index = 0).addClass("curr").siblings().removeClass("curr");
+						}
+					}.bind(this))
+				},
+				bindEvents() {
+					this.btnList.on("click", $.proxy(this.handleBtnListClick, this));
+					this.container.on("touchstart", $.proxy(this.handleContainerTouchstart, this));
+					this.container.on("touchend", $.proxy(this.handleContainerTouchend, this));
+					this.container.on("touchmove", $.proxy(this.handleContainerTouchmove, this));
+					this.leftBtn.on("click", $.proxy(this.handleLeftBtnClick, this));
+					this.rightBtn.on("click", $.proxy(this.handleRightBtnClick, this));
+				},
+				handleBtnListClick(e) {
+					e.stopPropagation();
+					this.index = $(e.currentTarget).index() - 1;
+					this.pictureLookFun();
+				},
+				handleContainerTouchstart() {
+					clearInterval(this.timer);
+				},
+				handleContainerTouchend() {
+					this.timer = setInterval($.proxy(this.pictureLookFun, this), this.speed);
+				},
+				handleContainerTouchmove() {
+					clearInterval(this.timer);
+				},
+				handleLeftBtnClick() {
+					clearInterval(this.timer);
+					this.index -= 2;
+					this.pictureLookFun();
+				},
+				handleRightBtnClick() {
+					clearInterval(this.timer);
+					this.pictureLookFun();
+				},
+			})
+
+			var page = new Page($(".container"));
+		</script>
+	</body>
+
+</html>
