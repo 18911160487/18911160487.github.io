@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container {
+				width: 30px;
+				height: 30px;
+				background: #666;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%);
+			}
+			
+			.container img {
+				float: left;
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<img id="img" src="img/spinner_0.png" />
+		</div>
+
+		<script type="text/javascript">
+			var num = 0;
+			var timer = null;
+			var img = document.getElementById("img");
+			timer = setInterval(function() {
+				num = (num++ >= 11 ? 0 : num);
+				var getImgSrc = img.getAttribute("src");
+				var setImgSrc = getImgSrc.substr(0, getImgSrc.lastIndexOf("_") + 1) + num + getImgSrc.substr(getImgSrc.lastIndexOf("."))
+				img.setAttribute("src", setImgSrc);
+
+				console.log(setImgSrc)
+			}, 300)
+		</script>
+	</body>
+
+</html>
