@@ -11,26 +11,46 @@
 				padding: 0;
 			}
 			
+			html {
+				font-size: 50px;
+			}
+			
 			.container {
-				width: 30px;
-				height: 30px;
-				background: #666;
 				position: fixed;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background: #fff;
+			}
+			
+			.container-content {
+				width: 2.8rem;
+				height: 2.8rem;
+				background: rgba(0, 0, 0, .5);
+				position: absolute;
 				left: 50%;
 				top: 50%;
-				transform: translate(-50%);
+				transform: translate(-50%, -50%);
+				border-radius: .2rem;
 			}
 			
 			.container img {
-				float: left;
-				width: 100%;
+				width: 1.4rem;
+				height: 1.4rem;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
 			}
 		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<img id="img" src="img/spinner_0.png" />
+			<div class="container-content">
+				<img id="img" src="img/spinner_0.png" />
+			</div>
 		</div>
 
 		<script type="text/javascript">
