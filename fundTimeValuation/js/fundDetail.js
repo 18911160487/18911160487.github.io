@@ -338,7 +338,7 @@ $.extend(Page.prototype, {
 		}
 	},
 	requestDataFun: function(dataObj) {
-		location.hostname == "127.0.0.1" ? $.ajax({
+		location.hostname == "127.0.0.1" || location.hostname == "18911160487.github.io" ? $.ajax({
 			url: dataObj.selfTestUrl,
 			timeout: 20000,
 			data: dataObj.data || {},
