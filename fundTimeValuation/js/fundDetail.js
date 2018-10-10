@@ -29,7 +29,7 @@ $.extend(Page.prototype, {
 		this.pageAuthorization()
 	},
 	pageAuthorization: function() {
-		location.hostname == "127.0.0.1" ?
+		location.hostname == "127.0.0.1" || location.hostname == "18911160487.github.io" ?
 			this.handlePageAuthorization() :
 			common_utils.judgmentPath().pageAuthorization($.proxy(this.handlePageAuthorization, this));
 	},

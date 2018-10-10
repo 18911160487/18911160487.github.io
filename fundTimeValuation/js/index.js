@@ -28,7 +28,7 @@ $.extend(Page.prototype, {
 			0 : parseInt(fundDetailTile && !!fundDetailTile.fundType ? fundDetailTile.fundType : 0);
 	},
 	pageAuthorization: function() {
-		location.hostname == "127.0.0.1" ?
+		location.hostname == "127.0.0.1" || location.hostname == "18911160487.github.io" ?
 			this.getFundDetailList() :
 			common_utils.judgmentPath().pageAuthorization($.proxy(this.getFundDetailList, this));
 	},
