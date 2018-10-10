@@ -102,7 +102,14 @@ $.extend(ContainerHighcharts.prototype, {
 			show: true,
 			trigger: 'axis',
 			axisPointer: {
-				type: 'cross'
+				type: 'cross',
+				lineStyle: {
+					color: '#ffc992'
+				},
+				crossStyle: {
+					color: '#ffc992',
+					type: 'solid'
+				}
 			},
 			formatter: function(params) {
 				var date = new Date(params[0].name);

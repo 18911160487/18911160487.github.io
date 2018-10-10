@@ -238,7 +238,8 @@ html {
 	border-top-right-radius: .43rem;
 	position: relative;
 	overflow: hidden;
-	background: url(../img/foresightBullishSpeed_green.png) left top repeat;
+	background-color: #20c998;
+	/*background: url(../img/foresightBullishSpeed_green.png) left top repeat;*/
 }
 
 .fund-foresight-BullishSpeed {
@@ -247,12 +248,41 @@ html {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: #fd575f url(../img/foresightBullishSpeed.png) right top no-repeat;
+	background-color: #ff6473;
+	/*background: #fd575f url(../img/foresightBullishSpeed.png) right top no-repeat;*/
 	background-size: auto 100%;
 }
 
+.fund-foresight-BullishSpeed:before {
+	width: .86rem;
+	height: .86rem;
+	border-top-left-radius: 50%;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #20c998;
+}
+
 .fund-foresight-Bullish-speed {
-	height: 100%;
+	width: .86rem;
+	height: .86rem;
+	content: '';
+	position: absolute;
+	right: .86rem;
+	top: 0;
+	background-color: #20c998;
+}
+
+.fund-foresight-Bullish-speed:before {
+	width: .86rem;
+	height: .86rem;
+	border-bottom-right-radius: 50%;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #ff6473;
 }
 
 .fund-foresight-bearish,
