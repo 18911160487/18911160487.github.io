@@ -156,9 +156,9 @@ $.extend(Page.prototype, {
 		$(".fundForesightBearishNumber").html(!goodVote && !badVote ? "50%" : (100 - Math.round(goodVote / (goodVote + badVote) * 100)) + "%");
 		var bullishNum = parseInt($(".fundForesightBullishNumber").html());
 		var bearishNum = parseInt($(".fundForesightBearishNumber").html());
-		bullishNum += 7;
+		bullishNum += 12.5;
 		var width = !goodVote && !badVote ? "57%" : bullishNum >= 100 ? "115%" : bullishNum >= 85 ? "85%" :
-			bullishNum <= 7 ? "0%" : bullishNum <= 27 ? "27%" : bullishNum + "%";
+			bullishNum <= 12.5 ? "0%" : bullishNum <= 27 ? "27%" : bullishNum + "%";
 		$(".fundForesightBullishSpeed").animate({
 			"width": width
 		}, 1000)
