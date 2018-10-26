@@ -1,0 +1,11 @@
+{
+	"code": "0000",
+	"data": {
+		"captchaImgUrl": "http://www.chinaamc.com/upload/Image/mrtp/1_78049802299.jpg",
+		"captcha": 422841,
+		"isTimeLimit": 1,
+		"startTime": "2018/05/16 13:56:56",
+		"giftRestNum": 0,
+		"state": 7
+	}
+}

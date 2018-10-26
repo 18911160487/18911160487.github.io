@@ -1,5 +1,6 @@
-function CopyDomContent(copyDom) { //依赖文件jq
+function CopyDomContent(copyDom, copyContent) { //依赖文件jq
 	this.copyDom = copyDom instanceof jQuery ? copyDom : $(copyDom); //判断该dom对象是否是jq对象，若不是则转换成jq对象
+	this.copyContent = copyContent;
 	this.init();
 }
 $.extend(CopyDomContent.prototype, {
@@ -7,10 +8,12 @@ $.extend(CopyDomContent.prototype, {
 		this.bindEvents();
 	},
 	bindEvents: function() {
+		console.log(this.copyContent)
 		this.copyDom.on("click", $.proxy(this.handleCopyDomClick, this));
 		this.copyDom[0].oncopy = $.proxy(this.handleCopyDomCopy, this);
 	},
 	handleCopyDomClick: function() {
+		console.log(this.copyContent)
 		document.execCommand("copy");
 	},
 	handleCopyDomCopy: function(e) {
@@ -18,13 +21,14 @@ $.extend(CopyDomContent.prototype, {
 	},
 	copyDomIsIE: function(e) {
 		if(window.clipboardData) {
-			window.clipboardData.setData("Text", e.currentTarget.textContent);
+			window.clipboardData.setData("Text", this.copyContent);
 		}
 	},
 	copyDomNotIE: function(e) {
 		e.preventDefault();
+		console.log(this.copyContent)
 		if(e.clipboardData) {
-			e.clipboardData.setData("text/plain", e.currentTarget.textContent);
+			e.clipboardData.setData("text/plain", this.copyContent);
 		}
 	},
 	isIE: function() {

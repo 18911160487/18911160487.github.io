@@ -1,0 +1,142 @@
+{
+	"code": "0000",
+	"msg": "",
+	"data": {
+		"avatar": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526577463994&di=de82c00c7c9ea428d134b0ec1eab6061&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F0df431adcbef76091e00b8b725dda3cc7cd99e8a.jpg",
+		"userName": "刘向坡",
+		"myPoints": 1000358,
+		"todayPoints": 10,
+		"captchaImgUrl": "https://www.apple.com/v/mac/home/y/images/home/high_sierra_promo/tile_high_sierra_small_2x.jpg",
+		"tips": "限时好礼在每个工作日09:00和13:00开启，先抢先得。",
+		"activityGiftArray": [
+			{
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 804011,
+				"giftId": "abc",
+				"giftName": "QQ金币200个",
+				"giftType": "3",
+				"isTimeLimit": 1,
+				"currentTime": "2018/07/08 11:27:56",
+				"startTime": "2018/07/08 13:19:19",
+				"templateId": "1",
+				"picture": "img/gifts/qqvip.png",
+				"exchangePoint": 100,
+				"giftRestNum": 0,
+				"state": 4,
+				"isExchangeToday": false
+			}, {
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 107053,
+				"giftId": "abc",
+				"giftName": "华夏定制充电宝",
+				"giftType": "3",
+				"isTimeLimit": 1,
+				"currentTime": "2018/05/16 12:56:50",
+				"startTime": "2018/05/16 12:56:56",
+				"templateId": "2",
+				"picture": "img/gifts/chongdianbao.png",
+				"exchangePoint": 200,
+				"giftRestNum": 10000,
+				"state": 4,
+				"isExchangeToday": false
+			}, {
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 43252,
+				"giftId": "abc",
+				"giftName": "优酷VIP会员1个月",
+				"giftType": "1",
+				"isTimeLimit": 0,
+				"currentTime": "2018/05/16 12:56:56",
+				"startTime": "2018/05/17 15:56:56",
+				"templateId": "3",
+				"picture": "img/gifts/youkuvip.png",
+				"exchangePoint": 300,
+				"giftRestNum": 1,
+				"state": 5,
+				"isExchangeToday": false
+			}, {
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 476312,
+				"giftId": "abc",
+				"giftName": "QQ金币200个",
+				"giftType": "1",
+				"isTimeLimit": 1,
+				"currentTime": "2018/05/16 12:56:56",
+				"startTime": "2018/05/16 12:57:02",
+				"templateId": "1",
+				"picture": "img/gifts/qqvip.png",
+				"exchangePoint": 400,
+				"giftRestNum": 0,
+				"state": 6,
+				"isExchangeToday": false
+			}, {
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 437546,
+				"giftId": "abc",
+				"giftName": "华夏定制充电宝",
+				"giftType": "2",
+				"isTimeLimit": 1,
+				"currentTime": "2018/05/16 12:56:56",
+				"startTime": "2018/05/16 13:56:56",
+				"templateId": "2",
+				"picture": "img/gifts/chongdianbao.png",
+				"exchangePoint": 500,
+				"giftRestNum": 10000,
+				"state": 5,
+				"isExchangeToday": false
+			}, {
+				"activityId": "123",
+				"sortId": 1,
+				"captcha": 404045,
+				"giftId": "abc",
+				"giftName": "优酷VIP会员1个月",
+				"giftType": "2",
+				"isTimeLimit": 1,
+				"currentTime": "2018/05/16 12:56:56",
+				"startTime": "2018/05/16 13:56:56",
+				"templateId": "3",
+				"picture": "img/gifts/youkuvip.png",
+				"exchangePoint": 600,
+				"giftRestNum": 10000,
+				"state": 4,
+				"isExchangeToday": false
+			}
+		],
+		"alreadyReadTypeArray": [
+			{
+				"businessType": "homePage",
+				"isAlreadRead": 0,
+				"taskIcon": "img/earnPointsEach_1.png",
+				"title": "了解如何抱紧改革的大腿",
+				"earnPoints": "积分+1",
+				"url": "111"
+			}, {
+				"businessType": "oldAgeBase",
+				"isAlreadRead": 1,
+				"taskIcon": "img/earnPointsEach_2.png",
+				"title": "每日答题",
+				"earnPoints": "积分+1",
+				"url": "222"
+			}, {
+				"businessType": "mainProduct",
+				"isAlreadRead": 0,
+				"taskIcon": "img/earnPointsEach_3.png",
+				"title": "去体验估算净值",
+				"earnPoints": "积分+1",
+				"url": "333"
+			}, {
+				"businessType": "welfareLion",
+				"isAlreadRead": 1,
+				"taskIcon": "img/earnPointsEach_4.png",
+				"title": "去看看华夏基金的主打产品",
+				"earnPoints": "积分+1",
+				"url": "444"
+			}
+		]
+	}
+}

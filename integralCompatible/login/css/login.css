@@ -1,0 +1,180 @@
+.login-dialog {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	z-index: 3;
+}
+
+.login-dialog .bg {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background: black;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+}
+
+.login-dialog .frame {
+	width: 100%;
+	height: 12.1991rem;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	background: url("../img/login-frame.png") center top no-repeat;
+	background-size: 100% 100%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+}
+
+.login-dialog .frame .idtype {
+	position: absolute;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	width: 1.8rem;
+	line-height: .41rem;
+	top: 6.1rem;
+	left: 1.2rem;
+	background-color: transparent;
+	border: 0;
+	padding-left: .3rem;
+	font-size: .24rem;
+	font-weight: bolder;
+	color: #000;
+}
+
+.login-dialog .frame .username {
+	position: absolute;
+	width: 3.6rem;
+	height: .41rem;
+	top: 6.96rem;
+	left: 1.3rem;
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
+	padding-left: .2rem;
+	font-size: .27rem;
+	font-weight: bolder;
+	color: #555;
+	outline: none;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 0;
+}
+
+.login-dialog .frame ::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+.login-dialog .frame ::-moz-placeholder {
+	color: #ccc;
+}
+
+.login-dialog .frame :-moz-input-placeholder {
+	color: #ccc;
+}
+
+.login-dialog .frame :-ms-input-placeholder {
+	color: #ccc;
+}
+
+.login-dialog .frame .password {
+	position: absolute;
+	background-color: transparent;
+	width: 3.6rem;
+	height: .36rem;
+	top: 7.94rem;
+	left: 1.3rem;
+	border: 0;
+	padding-left: .2rem;
+	font-size: .27rem;
+	font-weight: bolder;
+	color: #555;
+	outline: none;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 0;
+}
+
+.login-dialog .frame .btn-ok {
+	position: absolute;
+	top: 8.9rem;
+	left: 1.2rem;
+	width: 5.2rem;
+	height: .56rem;
+}
+
+.login-dialog .frame .btn-ok.not {
+	background: url("../img/login-btn-ok-not.png") center center no-repeat;
+	background-size: 100% 100%;
+}
+
+.login-dialog .frame .btn-register {
+	position: absolute;
+	top: 9.65rem;
+	left: 1.5rem;
+	width: 2.12rem;
+	height: .47rem;
+}
+
+.login-dialog .frame .btn-app {
+	position: absolute;
+	top: 9.65rem;
+	left: 4rem;
+	width: 2.12rem;
+	height: .47rem;
+}
+
+.login-close {
+	width: .4rem;
+	height: .4rem;
+	position: absolute;
+	top: 2.73rem;
+	right: .85rem;
+	z-index: 1000;
+}
+
+.login-close img {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.userNameClear,
+.passwordClear {
+	position: absolute;
+	top: 6.98rem;
+	right: 1.3rem;
+	width: .36rem;
+	height: .36rem;
+	background: url(../img/close.png) center center no-repeat;
+	background-size: 100% 100%;
+	display: none;
+}
+
+.userNameClear {
+	top: 6.98rem;
+}
+
+.passwordClear {
+	top: 7.94rem;
+}
+
+.shieldlayer-toast {
+	position: absolute;
+	left: 50%;
+	top: 5rem;
+	font-size: .3rem;
+	line-height: 2;
+	white-space: nowrap;
+	padding: 0 .3rem;
+	text-align: center;
+	background: #333;
+	border-radius: .08rem;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	display: none;
+}
