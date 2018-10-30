@@ -605,7 +605,7 @@ body {
 /*弹窗开始*/
 
 .popup,
-.changePopup {
+.floating-layer {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -616,11 +616,8 @@ body {
 	opacity: 0;
 }
 
-.changePopup {
-	z-index: 1;
-}
-
-.popup-container {
+.popup-container,
+.floating-layer-container {
 	width: 6rem;
 	padding: .56rem 0 .6rem;
 	position: absolute;
@@ -633,15 +630,11 @@ body {
 	display: none;
 }
 
-.popup-keepSuccess,
-.popup-copySuccess {
-	z-index: 1;
-}
-
 .popup-error-title,
 .popup-common-title,
-.popup-keepSuccess-title,
-.popup-copySuccess-title {
+.floating-layer-keepSuccess-title,
+.floating-layer-copySuccess-title,
+.popup-perfect-title {
 	font-size: .38rem;
 	line-height: 1.5;
 	color: #F55A23;
@@ -650,8 +643,9 @@ body {
 
 .popup-error-desc,
 .popup-common-desc,
-.popup-keepSuccess-desc,
-.popup-copySuccess-desc {
+.floating-layer-keepSuccess-desc,
+.floating-layer-copySuccess-desc,
+.popup-perfect-desc {
 	font-size: .26rem;
 	line-height: 1.5;
 	color: #707579;
@@ -663,8 +657,9 @@ body {
 .popup-exchange-btn,
 .popup-success-btn,
 .popup-success-confirmMsgBtn,
-.popup-keepSuccess-btn,
-.popup-copySuccess-btn {
+.floating-layer-keepSuccess-btn,
+.floating-layer-copySuccess-btn,
+.popup-perfect-btn {
 	width: 4.3rem;
 	height: .8rem;
 	margin: 0 auto;
@@ -681,8 +676,9 @@ body {
 .popupValidateClose,
 .popup-exchange-close,
 .popup-success-close,
-.popup-keepSuccess-close,
-.popup-copySuccess-close {
+.floating-layer-keepSuccess-close,
+.floating-layer-copySuccess-close,
+.popup-perfect-close {
 	width: .8rem;
 	height: .8rem;
 	position: absolute;
@@ -935,9 +931,12 @@ body {
 }
 
 textarea.popup-success-inputBox-input {
+	height: 1.12rem;
 	padding: .2rem 0 .2rem;
 	font-weight: 300;
 	line-height: .38rem;
+	outline: none;
+	resize: none;
 }
 
 .popup-success-confirmDescription,

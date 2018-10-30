@@ -128,7 +128,7 @@
 			</div>
 
 			<div class="popup" style="display: none;">
-				<div class="changePopup"></div>
+				<!--<div class="changePopup"></div>-->
 				
 				<div class="popup-container popupContainer popup-error popupError">
 					<div class="popup-error-title">页面数据错误</div>
@@ -144,20 +144,6 @@
 					<div class="popup-common-close popupCommonClose close"></div>
 				</div>
 				
-				<div class="popup-container popupContainer popup-keepSuccess popupKeepSuccess">
-					<div class="popup-keepSuccess-title">邮寄信息保存成功</div>
-					<div class="popup-keepSuccess-desc">我们将尽快寄出礼品，请保持您的手机畅通</div>
-					<div class="popup-keepSuccess-btn popupKeepSuccessBtn">返回活动页面</div>
-					<div class="popup-keepSuccess-close popupKeepSuccessClose close"></div>
-				</div>
-				
-				<div class="popup-container popupContainer popup-copySuccess popupCopySuccess">
-					<div class="popup-copySuccess-title">兑换码复制成功</div>
-					<div class="popup-copySuccess-desc">请到对应平台官网进行会员对换</div>
-					<div class="popup-copySuccess-btn popupCopySuccessBtn">返回</div>
-					<div class="popup-copySuccess-close popupCopySuccessClose"></div>
-				</div>
-
 				<div class="popup-container popupContainer popup-validate popupValidate">
 					<div class="popup-validate-title">完成验证</div>
 					<div class="popup-validate-picBox popupValidatePicBox">
@@ -193,7 +179,7 @@
 						<div class="popup-success-gift-icon popupSuccessGiftIcon"></div>
 						<img class="popup-success-gift-right" src="img/right.png">
 					</div>
-					<div class="popup-success-mailForm materialObject">
+					<div class="popup-success-mailForm popupSuccessMailForm materialObject">
 						<div class="popup-success-inputBox popup-success-recipient">
 							<div class="popup-success-inputBox-text">收件人：</div>
 							<input class="popup-success-inputBox-input popupSuccessUserName" type="text" placeholder="请输入您的姓名">
@@ -213,26 +199,51 @@
 					<div class="popup-success-btn popupSuccessBtn fictitious" data-clipboard-text="FFFXXX888089" id="popupSuccessBtn">复制兑换码</div>
 					<div class="popup-success-close popupSuccessClose close"></div>
 				</div>
+				
+				<div class="popup-container popupContainer popup-perfect popupPerfect">
+					<div class="popup-perfect-title popupPerfectTitle">完善邮寄信息</div>
+					<div class="popup-perfect-desc popupPerfectDesc">请完善上方邮寄信息后进行提交</div>
+					<div class="popup-perfect-btn popupPerfectBtn">提交</div>
+					<div class="popup-perfect-close popupPerfectClose close"></div>
+				</div>
+
+			</div>
+
+			<div class="floating-layer floatingLayer">
+				<div class="floating-layer-container floatingLayerContainer floating-layer-keepSuccess floatingLayerKeepSuccess" off="all">
+					<div class="floating-layer-keepSuccess-title">邮寄信息保存成功</div>
+					<div class="floating-layer-keepSuccess-desc">我们将尽快寄出礼品，请保持您的手机畅通</div>
+					<div class="floating-layer-keepSuccess-btn floatingLayerKeepSuccessBtn btn">返回活动页面</div>
+					<div class="floating-layer-keepSuccess-close floatingLayerKeepSuccessClose close"></div>
+				</div>
+				
+				<div class="floating-layer-container floatingLayerContainer floating-layer-copySuccess floatingLayerCopySuccess">
+					<div class="floating-layer-copySuccess-title">兑换码复制成功</div>
+					<div class="floating-layer-copySuccess-desc">请到对应平台官网进行会员对换</div>
+					<div class="floating-layer-copySuccess-btn floatingLayerCopySuccessBtn btn">返回</div>
+					<div class="floating-layer-copySuccess-close floatingLayerCopySuccessClose close"></div>
+				</div>
 
 			</div>
 
 		</div>
 		
-		<div id="btn" class="btn">
+		<!--<div id="btn" class="btn">
 			tijiao
-		</div>
+		</div>-->
 		<script src="common/js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/iscroll.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/CopyDomContent.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/RenderingComponent.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-//			$(".container").hide()
+			/*$(".container").hide()
 			var random = Math.random();
 			$(".btn").on("touchend", function() {
 				console.log(this)
 				new CopyDomContent($("#btn"),random)
-			})
+			})*/
 		</script>
 	</body>
 

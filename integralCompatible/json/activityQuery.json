@@ -110,32 +110,51 @@
 		"alreadyReadTypeArray": [
 			{
 				"businessType": "homePage",
-				"isAlreadRead": 0,
-				"taskIcon": "img/earnPointsEach_1.png",
-				"title": "了解如何抱紧改革的大腿",
-				"earnPoints": "积分+1",
-				"url": "111"
+				"isAlreadRead": 0
 			}, {
 				"businessType": "oldAgeBase",
-				"isAlreadRead": 1,
-				"taskIcon": "img/earnPointsEach_2.png",
-				"title": "每日答题",
-				"earnPoints": "积分+1",
-				"url": "222"
+				"isAlreadRead": 1
 			}, {
 				"businessType": "mainProduct",
-				"isAlreadRead": 0,
-				"taskIcon": "img/earnPointsEach_3.png",
-				"title": "去体验估算净值",
-				"earnPoints": "积分+1",
-				"url": "333"
+				"isAlreadRead": 0
 			}, {
 				"businessType": "welfareLion",
-				"isAlreadRead": 1,
-				"taskIcon": "img/earnPointsEach_4.png",
+				"isAlreadRead": 1
+			}
+		],
+		"businessList": [
+			{
+				"businessType": "homePage",
+				"url": "111",
+				"icon": "img/earnPointsEach_1.png",
+				"point": 1,
+				"title": "了解如何抱紧改革的大腿",
+				"description": "积分+1",
+				"isAddPoint": true
+			},{
+				"businessType": "oldAgeBase",
+				"url": "222",
+				"icon": "img/earnPointsEach_2.png",
+				"point": 1,
+				"title": "每日答题",
+				"description": "积分+1",
+				"isAddPoint": true
+			},{
+				"businessType": "mainProduct",
+				"url": "333",
+				"icon": "img/earnPointsEach_3.png",
+				"point": 1,
+				"title": "去体验估算净值",
+				"description": "积分+1",
+				"isAddPoint": true
+			},{
+				"businessType": "welfareLion",
+				"url": "444",
+				"icon": "img/earnPointsEach_4.png",
+				"point": 1,
 				"title": "去看看华夏基金的主打产品",
-				"earnPoints": "积分+1",
-				"url": "444"
+				"description": "积分+1",
+				"isAddPoint": true
 			}
 		]
 	}

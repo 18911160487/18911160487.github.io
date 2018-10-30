@@ -4,6 +4,7 @@ function Page() {
 	this.y = 0;
 	this.integralWrapperArr = []; //用来存储页面滚动数据
 	this.riteWrapperArr = []; //用来存储页面横向滚动数据
+	this.businessList = []; //用来储存赚积分列表数据
 	this.init()
 }
 $.extend(Page.prototype, {
@@ -42,6 +43,8 @@ $.extend(Page.prototype, {
 		console.log("error")
 	},
 	resizeDomStyle: function() {
+		$(".popupPerfectDesc").before($(".popupSuccessMailForm").clone().removeClass("materialObject"));
+
 		for(var i = 0, len = $(".headerProgressNum").length; i < len; i++) {
 			$(".headerProgressNum").eq(i).css({
 				"left": 100 / (len - 1) * i + "%",
@@ -97,8 +100,14 @@ $.extend(Page.prototype, {
 		if(res.code == "0000") {
 			this.activityGiftArray = res.data.activityGiftArray;
 			var alreadyReadTypeArray = res.data.alreadyReadTypeArray,
+				businessList = res.data.businessList,
 				riteHtml = "",
 				earnPointsHtml = "";
+			for(var i = 0; i < 4; i++) {
+				this.businessList[i] = {};
+				this.businessList[i] = $.extend(alreadyReadTypeArray[i], businessList[i])
+			}
+
 			$(".headerUserMsgUserAvatar").css("background-image", "url(" + res.data.avatar + ")");
 			$(".headerUserMsgUserName").html(res.data.userName);
 			$(".headerUserMsgAllPointNum").html(res.data.myPoints);
@@ -119,16 +128,14 @@ $.extend(Page.prototype, {
 					</div>
 				</div>`;
 			}
-			for(var i = 0; i < alreadyReadTypeArray.length; i++) {
-				earnPointsHtml += `<div class="earnPoints-each earnPointsEach clear" 
-						businessType="${alreadyReadTypeArray[i].businessType}" 
-						isAlreadRead="${alreadyReadTypeArray[i].isAlreadRead}">
-					<img class="earnPoints-each-taskIcon fl" src="${alreadyReadTypeArray[i].taskIcon}">
+			for(var i = 0; i < this.businessList.length; i++) {
+				earnPointsHtml += `<div class="earnPoints-each earnPointsEach clear">
+					<img class="earnPoints-each-taskIcon fl" src="${this.businessList[i].icon}">
 					<div class="earnPoints-each-taskBtn fr" style="background-image: 
-						url(./img/${!!alreadyReadTypeArray[i].isAlreadRead ? "wancheng" : "qukankan"}.png)"></div>
+						url(./img/${!!this.businessList[i].isAlreadRead ? "wancheng" : "qukankan"}.png)"></div>
 					<div class="earnPoints-each-taskInfo">
-						<div class="earnPoints-each-taskTitle">${alreadyReadTypeArray[i].title}</div>
-						<div class="earnPoints-each-taskIntegral">${alreadyReadTypeArray[i].earnPoints}</div>
+						<div class="earnPoints-each-taskTitle">${this.businessList[i].title}</div>
+						<div class="earnPoints-each-taskIntegral">${this.businessList[i].description}</div>
 					</div>
 				</div>`;
 			}
@@ -251,6 +258,7 @@ $.extend(Page.prototype, {
 		$(".integralScroller").on("touchend", ".riteEach", $.proxy(this.handleRiteEachTouchend, this));
 		$(".integralScroller").on("touchend", ".earnPointsEach", $.proxy(this.handleEarnPointsEachTouchend, this));
 		$(".giftReturnBtn").on("touchend", $.proxy(this.handleGiftReturnBtnTouchend, this));
+		$(".giftContainer").on("touchend", ".giftItemBtn", $.proxy(this.handleGiftItemBtnTouchend, this));
 		$(".popupValidateBtn").on("touchstart", $.proxy(this.handlePopupValidateBtnTouchstart, this));
 		$(".popupValidateBtn").on("touchmove", $.proxy(this.handlePopupValidateBtnTouchmove, this));
 		$(".popupValidateBtn").on("touchend", $.proxy(this.handlePopupValidateBtnTouchend, this));
@@ -259,7 +267,9 @@ $.extend(Page.prototype, {
 		$(".popupSuccessBtn").on("touchend", $.proxy(this.handlePopupSuccessBtnTouchend, this));
 		$(".popupCopySuccessClose,.popupCopySuccessBtn").on("touchend", $.proxy(this.handlePopupCopySuccessCloseTouchend, this));
 		$(".popupSuccessConfirmMsgBtn").on("touchend", $.proxy(this.handlePopupSuccessConfirmMsgBtnTouchend, this));
+		$(".popupPerfectBtn").on("touchend", $.proxy(this.handlePopupPerfectBtnTouchend, this));
 		$(".popupContainer .close,.popupKeepSuccessBtn").on("touchend", $.proxy(this.handlePopupCloseTouchend, this));
+		$(".floatingLayer .close,.floatingLayer .btn").on("touchend", $.proxy(this.handleFloatingLayerCloseTouchend, this));
 		/*$("#popupSuccessBtn").on("touchend", function() {
 			var random = Math.random();
 				new CopyDomContent($("#popupSuccessBtn"),random)
@@ -300,12 +310,12 @@ $.extend(Page.prototype, {
 			for(var i = 0; i < res.data.length; i++) {
 				var child = res.data[i],
 					giftItemDescHtml = "",
-					clipboardData = "",
+					redeemCode = "",
 					giftItemBtnBg = "";
 
 				if(child.giftType == "1") { //虚拟礼品
 					giftItemDescHtml = "兑换码:" + child.virtualCode;
-					clipboardData = child.virtualCode;
+					redeemCode = child.virtualCode;
 					giftItemBtnBg = "./img/copyBtn.png";
 				} else if(child.giftType == "2") { //实物礼品
 					if(!child.userAddress) { //没邮寄地址
@@ -315,7 +325,7 @@ $.extend(Page.prototype, {
 						giftItemDescHtml = "准备发货中";
 					} else { //发了快递
 						giftItemDescHtml = child.expressName + "单号:" + child.expressNo;
-						clipboardData = child.expressNo;
+						redeemCode = child.expressNo;
 						giftItemBtnBg = "./img/copyBtn.png";
 					}
 				}
@@ -323,7 +333,7 @@ $.extend(Page.prototype, {
 					<div class="gift-item-pic fl">
 						<div class="gift-item-picIcon" style="background-image: url(${child.picture});"></div>
 					</div>
-					<div class="gift-item-btn giftItemBtn fr" clipboardData="${clipboardData}" 
+					<div class="gift-item-btn giftItemBtn fr" redeemCode="${redeemCode}" 
 						style="background-image: url(${giftItemBtnBg}); display: ${!!giftItemBtnBg ? "block" : "none"}"></div>
 					<div class="gift-item-name">${child.giftName}</div>
 					<div class="gift-item-desc giftItemDesc">${giftItemDescHtml}</div>
@@ -378,7 +388,7 @@ $.extend(Page.prototype, {
 					"opacity": 1
 				}, 200);
 				this.riteEachCurrDom.addClass("scaleShakeAnimate");
-				$(".popupValidate").show().addClass("shakeAnimate");
+				$(".popupValidate").show().siblings().hide().end().addClass("shakeAnimate");
 				setTimeout(function() {
 					this.riteEachCurrDom.removeClass("scaleShakeAnimate");
 					$(".popupValidate").removeClass("shakeAnimate");
@@ -397,7 +407,7 @@ $.extend(Page.prototype, {
 		$(".popup").show().animate({
 			"opacity": 1
 		}, 200);
-		$(".popupCommon").show().addClass("shakeAnimate");
+		$(".popupCommon").show().siblings().hide().end().addClass("shakeAnimate");
 		setTimeout(function() {
 			$(".popupCommon").removeClass("shakeAnimate");
 		}.bind(this), 1000)
@@ -415,7 +425,46 @@ $.extend(Page.prototype, {
 		this.validataAbsolute(captcha);
 	},
 	handleEarnPointsEachTouchend: function(e) {
-		//alert("1235")
+		this.iscrollTouchendTransverse(e, function() {
+			var current = $(e.currentTarget);
+			var index = current.index();
+
+			if(!this.businessList[index].url) {
+				return;
+			}
+			if(!this.businessList[index].isAddPoint) {
+				alert(this.businessList[index].url);
+				return;
+			}
+
+			current.addClass("scaleShakeAnimate");
+			setTimeout(function() {
+				current.removeClass("scaleShakeAnimate");
+			}.bind(this), 1000)
+
+			common_utils.requestDataFun({
+				selfTestUrl: "json/addPoint.json",
+				url: "/appPointActivity/addPoint.fopcors",
+				success: $.proxy(this.getAddPointDataSucc, this, index),
+				error: $.proxy(this.getAddPointDataError, this),
+				complete: $.proxy(this.getAddPointDataComplete, this),
+			});
+
+		}.bind(this))
+	},
+	getAddPointDataSucc: function(index, res) {
+		console.log(res, index)
+		if(res.code == "0000") {
+			$(".headerUserMsgTodayPointNum").html(res.data.todayPoints);
+			$(".headerUserMsgAllPointNum").html(res.data.myPoints);
+			alert(this.businessList[index].url);
+		}
+	},
+	getAddPointDataError: function(res) {
+		
+	},
+	getAddPointDataComplete: function(res) {
+		
 	},
 	handleGiftReturnBtnTouchend: function(e) {
 		this.iscrollTouchendVertical(e, function() {
@@ -432,6 +481,30 @@ $.extend(Page.prototype, {
 				$(".gift").hide();
 			}.bind(this));
 		}.bind(this));
+	},
+	handleGiftItemBtnTouchend: function(e) {
+		if($(e.currentTarget).attr("redeemCode")) {
+			new CopyDomContent($(e.currentTarget), $(e.currentTarget).attr("redeemCode"));
+			setTimeout(function() {
+				$(".floatingLayer").show().animate({
+					"opacity": 1
+				}, 200);
+			}, 100)
+			$(".floatingLayerCopySuccess").show().siblings().hide().end().addClass("shakeAnimate");
+			setTimeout(function() {
+				$(".floatingLayerCopySuccess").removeClass("shakeAnimate");
+			}.bind(this), 1000)
+		} else {
+			setTimeout(function() {
+				$(".popup").show().animate({
+					"opacity": 1
+				}, 200);
+			}, 100)
+			$(".popupPerfect").show().siblings().hide().end().addClass("shakeAnimate");
+			setTimeout(function() {
+				$(".popupPerfect").removeClass("shakeAnimate");
+			}.bind(this), 1000)
+		}
 	},
 	handlePopupValidateBtnTouchstart: function(e) {
 		this.validateBtnLeft = $(e.currentTarget).offset().left + (e.touches[0].clientX - $(e.currentTarget).offset().left);
@@ -467,7 +540,7 @@ $.extend(Page.prototype, {
 					"margin-top": "0",
 					"opacity": 1
 				})
-				$(".popupExchange").show().addClass("shakeAnimate");
+				$(".popupExchange").show().siblings().hide().end().addClass("shakeAnimate");
 				setTimeout(function() {
 					$(".popupExchange").removeClass("shakeAnimate");
 				}.bind(this), 1000)
@@ -519,9 +592,9 @@ $.extend(Page.prototype, {
 				$(".popupSuccess .fictitious").hide();
 				$(".popupSuccessGiftTitle").html(this.activityCiftData.giftName);
 				$(".popupSuccessGiftIcon").css("background-image", "url(" + this.activityCiftData.picture + ");")
-				$(".popupSuccessUserName").html(res.data.userName);
-				$(".popupSuccessPhoneNo").html(res.data.phoneNo);
-				$(".popupSuccessAddress").html(res.data.address);
+				$(".popupSuccessUserName").val(res.data.userName);
+				$(".popupSuccessPhoneNo").val(res.data.phoneNo);
+				$(".popupSuccessAddress").val(res.data.address);
 			}
 			$(".popupExchange").animate({
 				"margin-top": "-500px",
@@ -531,7 +604,7 @@ $.extend(Page.prototype, {
 					"margin-top": "0",
 					"opacity": 1
 				})
-				$(".popupSuccess").show().addClass("shakeAnimate");
+				$(".popupSuccess").show().siblings().addClass("shakeAnimate");
 				setTimeout(function() {
 					$(".popupSuccess").removeClass("shakeAnimate");
 				}.bind(this), 1000)
@@ -549,18 +622,15 @@ $.extend(Page.prototype, {
 
 	},
 	handlePopupSuccessBtnTouchend: function(e) {
-		var random = Math.random();
-				new CopyDomContent($("#popupSuccessBtn"),random)
-		/*new CopyDomContent($("#popupSuccessBtn"), $(".popupSuccessDescription span").html());*/
+		new CopyDomContent($("#popupSuccessBtn"), $(".popupSuccessDescription span").html())
 		setTimeout(function() {
-			
-			$(".changePopup").show().animate({
+			$(".floatingLayer").show().animate({
 				"opacity": 1
 			}, 200);
-		},100)
-		$(".popupCopySuccess").show().addClass("shakeAnimate");
+		}, 100)
+		$(".floatingLayerCopySuccess").show().addClass("shakeAnimate");
 		setTimeout(function() {
-			$(".popupCopySuccess").removeClass("shakeAnimate");
+			$(".floatingLayerCopySuccess").removeClass("shakeAnimate");
 		}.bind(this), 1000)
 	},
 	handlePopupCopySuccessCloseTouchend: function() {
@@ -578,13 +648,67 @@ $.extend(Page.prototype, {
 		})
 	},
 	handlePopupSuccessConfirmMsgBtnTouchend: function() {
-		$(".popupKeepSuccess").show().addClass("shakeAnimate");
-		$(".changePopup").show().animate({
-			"opacity": 1
-		}, 200);
-		setTimeout(function() {
-			$(".popupKeepSuccess").removeClass("shakeAnimate");
-		}.bind(this), 1000)
+		this.validataUeseMsg({
+			"userName": $(".popupSuccess .popupSuccessUserName"),
+			"phoneNo": $(".popupSuccess .popupSuccessPhoneNo"),
+			"address": $(".popupSuccess .popupSuccessAddress")
+		})
+	},
+	handlePopupPerfectBtnTouchend: function() {
+		this.validataUeseMsg({
+			"userName": $(".popupPerfect .popupSuccessUserName"),
+			"phoneNo": $(".popupPerfect .popupSuccessPhoneNo"),
+			"address": $(".popupPerfect .popupSuccessAddress")
+		})
+	},
+	validataUeseMsg: function(userMsg) {
+		if(!userMsg.userName.val()) {
+			this.shieldlayerToast({ //html， dom, speed, flag
+				"html": "<div>请输入您的姓名</div>"
+			});
+			return;
+		}
+		if(!/^[1][3,4,5,7,8][0-9]{9}$/.test(userMsg.phoneNo.val())) {
+			this.shieldlayerToast({ //html， dom, speed, flag
+				"html": "<div>手机号码不符合规定（11位纯数字）</div>"
+			});
+			return;
+		}
+		if(!userMsg.address.val()) {
+			this.shieldlayerToast({ //html， dom, speed, flag
+				"html": "<div>请输入完整的信息</div>"
+			});
+			return;
+		}
+		common_utils.requestDataFun({
+			selfTestUrl: "json/saveMailingAddress.json",
+			url: "/appPointActivity/saveMailingAddress.fopcors",
+			data: {
+				userName: userMsg.userName.val(),
+				phoneNo: userMsg.phoneNo.val(),
+				address: userMsg.address.val()
+			},
+			success: $.proxy(this.getSaveMailingAddressDataSucc, this),
+			error: $.proxy(this.getSaveMailingAddressDataError, this),
+			complete: $.proxy(this.getSaveMailingAddressDataComplete, this),
+		});
+	},
+	getSaveMailingAddressDataSucc: function(res) {
+		if(res.code == "0000") {
+			$(".floatingLayer").show().animate({
+				"opacity": 1
+			}, 200);
+			$(".floatingLayerKeepSuccess").show().siblings().addClass("shakeAnimate");
+			setTimeout(function() {
+				$(".floatingLayerKeepSuccess").removeClass("shakeAnimate");
+			}.bind(this), 1000)
+		}
+	},
+	getSaveMailingAddressDataError: function() {
+
+	},
+	getSaveMailingAddressDataComplete: function() {
+
 	},
 	handlePopupCloseTouchend: function() {
 		$(".popupContainer").animate({
@@ -600,6 +724,35 @@ $.extend(Page.prototype, {
 			}, 200);
 			$(".popupContainer").hide();
 			$(".changePopup").hide().animate({
+				"opacity": 0
+			}, 200);
+		})
+	},
+	handleFloatingLayerCloseTouchend: function(e) {
+		var flag = $(e.currentTarget).parent().attr("off") == "all";
+		if(flag) {
+			$(".popupContainer").animate({
+				"margin-top": "-500px",
+				"opacity": 0
+			}, 800, function() {
+				$(".popupContainer").css({
+					"margin-top": "0",
+					"opacity": 1
+				})
+				$(".popup").hide().animate({
+					"opacity": 0
+				}, 200);
+			})
+		}
+		$(".floatingLayerContainer").animate({
+			"margin-top": "-500px",
+			"opacity": 0
+		}, 800, function() {
+			$(".floatingLayerContainer").css({
+				"margin-top": "0",
+				"opacity": 1
+			})
+			$(".floatingLayer").hide().animate({
 				"opacity": 0
 			}, 200);
 		})
