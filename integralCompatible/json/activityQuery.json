@@ -6,6 +6,8 @@
 		"userName": "刘向坡",
 		"myPoints": 1000358,
 		"todayPoints": 10,
+		"addPoints": 0,
+		"dailyCheckinNum": 3,
 		"captchaImgUrl": "https://www.apple.com/v/mac/home/y/images/home/high_sierra_promo/tile_high_sierra_small_2x.jpg",
 		"tips": "限时好礼在每个工作日09:00和13:00开启，先抢先得。",
 		"activityGiftArray": [
@@ -14,23 +16,24 @@
 				"sortId": 1,
 				"captcha": 804011,
 				"giftId": "abc",
-				"giftName": "QQ金币200个",
+				"giftName": "爱奇艺会员月卡",
 				"giftType": "3",
 				"isTimeLimit": 1,
 				"currentTime": "2018/07/08 11:27:56",
 				"startTime": "2018/07/08 13:19:19",
 				"templateId": "1",
-				"picture": "img/gifts/qqvip.png",
+				"picture": "img/gifts/aiqiyi.png",
 				"exchangePoint": 100,
 				"giftRestNum": 0,
 				"state": 4,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "尊享权益，无时差跟播，海量新剧提前看"
 			}, {
 				"activityId": "123",
 				"sortId": 1,
 				"captcha": 107053,
 				"giftId": "abc",
-				"giftName": "华夏定制充电宝",
+				"giftName": "iWALK充电宝",
 				"giftType": "3",
 				"isTimeLimit": 1,
 				"currentTime": "2018/05/16 12:56:50",
@@ -40,45 +43,48 @@
 				"exchangePoint": 200,
 				"giftRestNum": 10000,
 				"state": 4,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "轻薄轻便，自带充电数据线"
 			}, {
 				"activityId": "123",
 				"sortId": 1,
 				"captcha": 43252,
 				"giftId": "abc",
-				"giftName": "优酷VIP会员1个月",
+				"giftName": "u盘-16G",
 				"giftType": "1",
 				"isTimeLimit": 0,
 				"currentTime": "2018/05/16 12:56:56",
 				"startTime": "2018/05/17 15:56:56",
 				"templateId": "3",
-				"picture": "img/gifts/youkuvip.png",
+				"picture": "img/gifts/usb.png",
 				"exchangePoint": 300,
 				"giftRestNum": 1,
 				"state": 5,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "银灰色金属外壳，尺寸小巧，便携亦不失时尚"
 			}, {
 				"activityId": "123",
 				"sortId": 1,
 				"captcha": 476312,
 				"giftId": "abc",
-				"giftName": "QQ金币200个",
+				"giftName": "爱奇艺会员月卡",
 				"giftType": "1",
 				"isTimeLimit": 1,
 				"currentTime": "2018/05/16 12:56:56",
 				"startTime": "2018/05/16 12:57:02",
 				"templateId": "1",
-				"picture": "img/gifts/qqvip.png",
+				"picture": "img/gifts/aiqiyi.png",
 				"exchangePoint": 400,
 				"giftRestNum": 0,
 				"state": 6,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "尊享权益，无时差跟播，海量新剧提前看"
 			}, {
 				"activityId": "123",
 				"sortId": 1,
 				"captcha": 437546,
 				"giftId": "abc",
-				"giftName": "华夏定制充电宝",
+				"giftName": "iWALK充电宝",
 				"giftType": "2",
 				"isTimeLimit": 1,
 				"currentTime": "2018/05/16 12:56:56",
@@ -88,38 +94,40 @@
 				"exchangePoint": 500,
 				"giftRestNum": 10000,
 				"state": 5,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "轻薄轻便，自带充电数据线"
 			}, {
 				"activityId": "123",
 				"sortId": 1,
 				"captcha": 404045,
 				"giftId": "abc",
-				"giftName": "优酷VIP会员1个月",
+				"giftName": "滇红茶叶礼盒",
 				"giftType": "2",
 				"isTimeLimit": 1,
 				"currentTime": "2018/05/16 12:56:56",
 				"startTime": "2018/05/16 13:56:56",
 				"templateId": "3",
-				"picture": "img/gifts/youkuvip.png",
+				"picture": "img/gifts/zhenxiangcha.png",
 				"exchangePoint": 600,
 				"giftRestNum": 10000,
 				"state": 4,
-				"isExchangeToday": false
+				"isExchangeToday": false,
+				"description": "粉色红鲜明亮，香气保鲜，滋味浓强"
 			}
 		],
 		"alreadyReadTypeArray": [
 			{
 				"businessType": "homePage",
-				"isAlreadRead": 0
-			}, {
+				"isAlreadyRead": 1
+			},{
 				"businessType": "oldAgeBase",
-				"isAlreadRead": 1
-			}, {
+				"isAlreadyRead": 1
+			},{
 				"businessType": "mainProduct",
-				"isAlreadRead": 0
-			}, {
+				"isAlreadyRead": 1
+			},{
 				"businessType": "welfareLion",
-				"isAlreadRead": 1
+				"isAlreadyRead": 1
 			}
 		],
 		"businessList": [
@@ -130,7 +138,7 @@
 				"point": 1,
 				"title": "了解如何抱紧改革的大腿",
 				"description": "积分+1",
-				"isAddPoint": true
+				"isAddPoint": "Y"
 			},{
 				"businessType": "oldAgeBase",
 				"url": "222",
@@ -138,7 +146,7 @@
 				"point": 1,
 				"title": "每日答题",
 				"description": "积分+1",
-				"isAddPoint": true
+				"isAddPoint": "Y"
 			},{
 				"businessType": "mainProduct",
 				"url": "333",
@@ -146,7 +154,7 @@
 				"point": 1,
 				"title": "去体验估算净值",
 				"description": "积分+1",
-				"isAddPoint": true
+				"isAddPoint": "Y"
 			},{
 				"businessType": "welfareLion",
 				"url": "444",
@@ -154,7 +162,7 @@
 				"point": 1,
 				"title": "去看看华夏基金的主打产品",
 				"description": "积分+1",
-				"isAddPoint": true
+				"isAddPoint": "Y"
 			}
 		]
 	}

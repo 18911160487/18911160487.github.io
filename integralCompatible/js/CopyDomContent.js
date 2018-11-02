@@ -8,12 +8,10 @@ $.extend(CopyDomContent.prototype, {
 		this.bindEvents();
 	},
 	bindEvents: function() {
-		console.log(this.copyContent)
 		this.copyDom.on("click", $.proxy(this.handleCopyDomClick, this));
 		this.copyDom[0].oncopy = $.proxy(this.handleCopyDomCopy, this);
 	},
 	handleCopyDomClick: function() {
-		console.log(this.copyContent)
 		document.execCommand("copy");
 	},
 	handleCopyDomCopy: function(e) {
@@ -26,7 +24,6 @@ $.extend(CopyDomContent.prototype, {
 	},
 	copyDomNotIE: function(e) {
 		e.preventDefault();
-		console.log(this.copyContent)
 		if(e.clipboardData) {
 			e.clipboardData.setData("text/plain", this.copyContent);
 		}

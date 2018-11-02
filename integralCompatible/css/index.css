@@ -11,6 +11,7 @@ body {
 
 .integral-wrapper {
 	overflow: hidden;
+	display: none;
 }
 
 .integral-scroller {
@@ -225,20 +226,21 @@ body {
 }
 
 .rite-wrapper {
-	width: 100%;
+	width: 97%;
 	height: 3.92rem;
+	margin: 0 auto;
 	/*overflow: hidden;*/
 }
 
 .rite-scroller {
-	width: 97%;
+	width: 100%;
 	height: 100%;
-	padding: 0 1.5%;
+	/*padding: 0 .1rem;*/
 }
 
 .rite-abnormal {
 	width: 6.78rem;
-	height: 3.68rem;
+	height: 2.58rem;
 	padding-top: 1.08rem;
 	margin: 0 auto;
 	color: #707579;
@@ -634,7 +636,8 @@ body {
 .popup-common-title,
 .floating-layer-keepSuccess-title,
 .floating-layer-copySuccess-title,
-.popup-perfect-title {
+.popup-perfect-title,
+.floating-layer-queryValidataError-title {
 	font-size: .38rem;
 	line-height: 1.5;
 	color: #F55A23;
@@ -645,7 +648,9 @@ body {
 .popup-common-desc,
 .floating-layer-keepSuccess-desc,
 .floating-layer-copySuccess-desc,
-.popup-perfect-desc {
+.popup-perfect-desc,
+.floating-layer-abnormal-desc,
+.floating-layer-queryValidataError-desc {
 	font-size: .26rem;
 	line-height: 1.5;
 	color: #707579;
@@ -659,7 +664,10 @@ body {
 .popup-success-confirmMsgBtn,
 .floating-layer-keepSuccess-btn,
 .floating-layer-copySuccess-btn,
-.popup-perfect-btn {
+.popup-perfect-btn,
+.floating-layer-abnormal-btn,
+.floating-layer-queryValidataError-btn,
+.popup-prizeDetail-btn {
 	width: 4.3rem;
 	height: .8rem;
 	margin: 0 auto;
@@ -678,7 +686,10 @@ body {
 .popup-success-close,
 .floating-layer-keepSuccess-close,
 .floating-layer-copySuccess-close,
-.popup-perfect-close {
+.popup-perfect-close,
+.floating-layer-abnormal-close,
+.floating-layer-queryValidataError-close,
+.popup-prizeDetail-close {
 	width: .8rem;
 	height: .8rem;
 	position: absolute;
@@ -689,7 +700,8 @@ body {
 }
 
 .popup-validate-title,
-.popup-exchange-title {
+.popup-exchange-title,
+.floating-layer-abnormal-title {
 	font-size: .38rem;
 	line-height: 1.5;
 	color: #505558;
@@ -873,7 +885,7 @@ body {
 	background-size: 100% 100%;
 	background-position: center;
 	border-radius: .12rem;
-	background-image: url(../img/gifts/youkuvip.png);
+	background-image: url(../img/gifts/aiqiyi.png);
 }
 
 .popup-success-gift-right {
@@ -950,6 +962,40 @@ textarea.popup-success-inputBox-input {
 .popup-success-description span {
 	color: #F55A23;
 	font-weight: bolder;
+}
+
+.popup-prizeDetail-icon {
+	width: 4.5rem;
+	margin: 0 auto;
+}
+
+.popup-prizeDetail-icon img {
+	width: 100%;
+}
+
+.popup-prizeDetail-title {
+	font-size: .32rem;
+	line-height: .6rem;
+	font-weight: 300;
+	color: #808080;
+}
+
+.popup-prizeDetail-desc {
+	width: 3.4rem;
+	margin: 0 auto;
+	font-size: .24rem;
+	line-height: 1.5;
+	color: #999999;
+}
+
+.floating-layer-abnormal-icon {
+	height: 1.28rem;
+	padding: .34rem 0 .2rem;
+	margin: 0 auto;
+}
+
+.floating-layer-abnormal-icon img {
+	height: 100%;
 }
 
 

@@ -6,27 +6,29 @@
 			"activityId": 222,
 			"giftId": 222,
 			"giftType": "1",
-			"picture": "img/gifts/youkuvip.png",
+			"picture": "img/gifts/chongdianbao.png",
 			"templateId": "6",
 			"receiveTime": "2018-5-28 12:56:58",
 			"requestId": "123",
-			"virtualCode": "XF99887688768876"
+			"virtualCode": "XF99887688768876",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "QQ金币200个",
 			"activityId": 333,
 			"giftId": 333,
 			"giftType": "1",
-			"picture": "img/gifts/youkuvip.png",
+			"picture": "img/gifts/chongdianbao.png",
 			"templateId": "7",
 			"receiveTime": "2018-5-28 12:56:58",
 			"requestId": "123",
-			"virtualCode": "XF99887688768878"
+			"virtualCode": "XF99887688768878",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏定制充电宝",
 			"activityId": 444,
 			"giftId": 444,
 			"giftType": "2",
-			"picture": "img/gifts/youkuvip.png",
+			"picture": "img/gifts/chongdianbao.png",
 			"templateId": "6",
 			"receiveTime": "2018-5-28 12:56:58",
 			"requestId": "123",
@@ -34,7 +36,8 @@
 			"userPhone": "18600546569",
 			"userAddress": "北京市朝阳区酒仙桥路14号兆维工业园",
 			"expressName": "顺丰",
-			"expressNo": "1189767890"
+			"expressNo": "1189767890",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏限量笔记本1",
 			"activityId": 555,
@@ -48,7 +51,8 @@
 			"userPhone": "18600546569",
 			"userAddress": "北京市朝阳区酒仙桥路14号兆维工业园",
 			"expressName": "",
-			"expressNo": ""
+			"expressNo": "",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏限量笔记本2",
 			"activityId": 666,
@@ -62,27 +66,30 @@
 			"userPhone": "",
 			"userAddress": "",
 			"expressName": "",
-			"expressNo": ""
+			"expressNo": "",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "优酷1个月VIP会员",
 			"activityId": 222,
 			"giftId": 222,
 			"giftType": "1",
-			"picture": "img/gifts/youkuvip.png",
+			"picture": "img/gifts/chongdianbao.png",
 			"templateId": "6",
 			"receiveTime": "2018-5-28 12:56:58",
 			"requestId": "123",
-			"virtualCode": "XF99887688768876"
+			"virtualCode": "XF99887688768876",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "QQ金币200个",
 			"activityId": 333,
 			"giftId": 333,
 			"giftType": "1",
-			"picture": "img/gifts/youkuvip.png",
+			"picture": "img/gifts/chongdianbao.png",
 			"templateId": "7",
 			"receiveTime": "2018-5-28 12:56:58",
 			"requestId": "123",
-			"virtualCode": "XF99887688768878"
+			"virtualCode": "XF99887688768878",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏定制充电宝",
 			"activityId": 444,
@@ -96,7 +103,8 @@
 			"userPhone": "18600546569",
 			"userAddress": "北京市朝阳区酒仙桥路14号兆维工业园",
 			"expressName": "顺丰",
-			"expressNo": "1189767890"
+			"expressNo": "1189767890",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏限量笔记本1",
 			"activityId": 555,
@@ -110,7 +118,8 @@
 			"userPhone": "18600546569",
 			"userAddress": "北京市朝阳区酒仙桥路14号兆维工业园",
 			"expressName": "",
-			"expressNo": ""
+			"expressNo": "",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}, {
 			"giftName": "华夏限量笔记本2",
 			"activityId": 666,
@@ -124,7 +133,8 @@
 			"userPhone": "",
 			"userAddress": "",
 			"expressName": "",
-			"expressNo": ""
+			"expressNo": "",
+			"description": "尊享权益，无时差跟播，海量新剧提前看"
 		}
 	]
 }

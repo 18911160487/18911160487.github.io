@@ -13,7 +13,7 @@ $.extend(Common_utils.prototype, {
 		var hostname = location.protocol + "//" + location.hostname;
 		this.platformType = ua.indexOf('amcfmapp') != -1 || ua.indexOf('amchqtapp') != -1 ? "app" : ua.indexOf('micromessenger') != -1 ? "weixin" : "h5";
 		this.commonUrl = hostname == "http://127.0.0.1" || hostname == "http://mtest.chinaamc.com" || hostname == "https://mtest.chinaamc.com" ?
-			"https://mtest.chinaamc.com/mphoneAnt/mp" : "https://m.chinaamc.com/mphone/mp";
+			"http://mtest.chinaamc.com/mphoneAnt/mp" : "https://m.chinaamc.com/mphone/mp";
 	},
 	setHTMLFontSize: function() {
 		var ww;

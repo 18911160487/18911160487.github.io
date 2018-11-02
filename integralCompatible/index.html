@@ -15,34 +15,34 @@
 	<body>
 
 		<div class="container">
-
+			<!--登录弹窗-->
 			<div id="login"></div>
-
+			<!--toast提示-->
 			<div class="toast"></div>
-
+			<!--页面加载loading-->
 			<div class="loading">
 				<div class="loading-content loadingContent">0%</div>
 			</div>
-
+			<!--页面代码-->
 			<div class="integral-wrapper integralWrapper" id="integralWrapper">
 				<div class="integral-scroller integralScroller">
-
+					<!--下拉刷新-->
 					<div class="refresh changeStyle">
 						<div class="refresh-content">
 							<div class="refresh-progress refreshProgress"></div>
 							<div class="refresh-tip">下拉刷新</div>
 						</div>
 					</div>
-
+					<!--页面头部-->
 					<div class="header clear">
 						<div class="header-userMsg fl">
 							<div class="header-userMsg-userAvatar headerUserMsgUserAvatar"></div>
 							<div class="header-userMsg-userName headerUserMsgUserName">#姓名#</div>
 							<div class="header-userMsg-allPoint">积分：
-								<span class="header-userMsg-allPoint-num headerUserMsgAllPointNum"></span>
+								<span class="header-userMsg-allPoint-num headerUserMsgAllPointNum">--</span>
 							</div>
 							<div class="header-userMsg-todayPoint">今日赚取积分：
-								<span class="header-userMsg-todayPoint-num headerUserMsgTodayPointNum"></span>
+								<span class="header-userMsg-todayPoint-num headerUserMsgTodayPointNum">--</span>
 							</div>
 						</div>
 						<div class="header-sign fr clear">
@@ -59,19 +59,19 @@
 						</div>
 
 					</div>
-
+					<!--积分兑好礼-->
 					<div class="rite">
 						<div class="rite-title">积分兑好礼</div>
 						<div class="rite-abnormal riteAbnormal border hide">
 							<div class="rite-abnormal-title">一大波礼品正在赶来的路上</div>
 							<div class="rite-abnormal-desc">抱歉，当前没有可兑换的礼品，请您继续关注</div>
 						</div>
-						<div class="rite-wrapper riteWrapper" id="riteWrapper">
-							<div class="rite-scroller riteScroller clear"></div>
+						<div class="rite-wrapper riteWrapper swiper-container" id="riteWrapper">
+							<div class="rite-scroller riteScroller swiper-wrapper clear"></div>
 						</div>
 						<div class="rite-desc riteDesc"></div>
 					</div>
-
+					<!--banner-->
 					<div class="acticity-container acticityContainer">
 						<div class="acticity-wrapper">
 							<div class="acticity-slide acticity-luckDraw acticityLuckDraw">
@@ -79,16 +79,15 @@
 							</div>
 						</div>
 					</div>
-
+					<!--我要赚积分-->
 					<div class="earnPoints" style="display: none;">
 						<div class="earnPoints-title">我要赚积分</div>
 						<div class="earnPoints-container earnPointsContainer"></div>
 					</div>
-
+					<!--活动规则-->
 					<div class="rule">
 						<div class="rule-title">积分活动规则</div>
 						<div class="rule-content">
-
 							<div class="rule-item ruleItem">
 								<span class="rule-item-num">1.</span>
 								<div class="rule-item-content">积分可用作兑换礼券或礼品，在奖品库充足，且用户积分大于所兑换商品所需积分的前提下，用户可自行兑换。限时礼品每个用户每周仅限兑换一次，次周如活动开放可再来兑换；</div>
@@ -119,16 +118,15 @@
 					</div>
 				</div>
 			</div>
-
+			<!--我的礼品-->
 			<div class="gift">
 				<div class="gift-return-btn giftReturnBtn giftAnimate"></div>
 				<div class="gift-title giftAnimate">我的礼品</div>
 				<div class="gift-abnormal giftAbnormal border">当前没有对换记录，您可以通过在活动页面做任务赚取积分，通过积分对换您想要的礼品，谢谢！</div>
 				<div class="gift-container giftContainer"></div>
 			</div>
-
+			<!--弹窗-->
 			<div class="popup" style="display: none;">
-				<!--<div class="changePopup"></div>-->
 				
 				<div class="popup-container popupContainer popup-error popupError">
 					<div class="popup-error-title">页面数据错误</div>
@@ -170,7 +168,7 @@
 					<div class="popup-exchange-close popupExchangeClose close"></div>
 				</div>
 
-				<div class="popup-container popupContainer popup-success popupSuccess">
+				<div class="popup-container popupContainer popup-success popupSuccess" style="display: none;">
 					<div class="popup-success-light"></div>
 					<div class="popup-success-flower"></div>
 					<div class="popup-success-title"></div>
@@ -196,7 +194,7 @@
 					<div class="popup-success-confirmDescription materialObject">请填写正确的收件信息，我们将尽快邮寄</div>
 					<div class="popup-success-confirmMsgBtn popupSuccessConfirmMsgBtn materialObject">确认收件信息</div>
 					<div class="popup-success-description popupSuccessDescription fictitious">兑换码：<span></span>，复制后前往对应平台官网进行兑换</div>
-					<div class="popup-success-btn popupSuccessBtn fictitious" data-clipboard-text="FFFXXX888089" id="popupSuccessBtn">复制兑换码</div>
+					<div class="popup-success-btn popupSuccessBtn fictitious" clipboard="FFFXXX888089" id="popupSuccessBtn">复制兑换码</div>
 					<div class="popup-success-close popupSuccessClose close"></div>
 				</div>
 				
@@ -206,9 +204,19 @@
 					<div class="popup-perfect-btn popupPerfectBtn">提交</div>
 					<div class="popup-perfect-close popupPerfectClose close"></div>
 				</div>
+				
+				<div class="popup-container popupContainer popup-prizeDetail popupPrizeDetail">
+					<div class="popup-prizeDetail-icon popupPerfectIcon">
+						<img src=""/>
+					</div>
+					<div class="popup-prizeDetail-title popupPrizeDetailTitle"></div>
+					<div class="popup-prizeDetail-desc popupPrizeDetailDesc"></div>
+					<div class="popup-prizeDetail-btn popupPrizeDetailBtn">好的</div>
+					<div class="popup-prizeDetail-close popupPrizeDetailClose close"></div>
+				</div>
 
 			</div>
-
+			<!--二层弹窗-->
 			<div class="floating-layer floatingLayer">
 				<div class="floating-layer-container floatingLayerContainer floating-layer-keepSuccess floatingLayerKeepSuccess" off="all">
 					<div class="floating-layer-keepSuccess-title">邮寄信息保存成功</div>
@@ -217,11 +225,27 @@
 					<div class="floating-layer-keepSuccess-close floatingLayerKeepSuccessClose close"></div>
 				</div>
 				
+				<div class="floating-layer-container floatingLayerContainer floating-layer-queryValidataError floatingLayerQueryValidataError">
+					<div class="floating-layer-queryValidataError-title">验证码获取失败</div>
+					<div class="floating-layer-queryValidataError-desc">验证码获取失败，请关闭弹窗后再次尝试</div>
+					<div class="floating-layer-queryValidataError-btn floatingLayerQueryValidataErrorBtn btn">返回</div>
+					<div class="floating-layer-queryValidataError-close floatingLayerQueryValidataErrorClose close"></div>
+				</div>
+				
 				<div class="floating-layer-container floatingLayerContainer floating-layer-copySuccess floatingLayerCopySuccess">
 					<div class="floating-layer-copySuccess-title">兑换码复制成功</div>
 					<div class="floating-layer-copySuccess-desc">请到对应平台官网进行会员对换</div>
 					<div class="floating-layer-copySuccess-btn floatingLayerCopySuccessBtn btn">返回</div>
 					<div class="floating-layer-copySuccess-close floatingLayerCopySuccessClose close"></div>
+				</div>
+				
+				<div class="floating-layer-container floatingLayerContainer floating-layer-abnormal floatingLayerAbnormal">
+					<div class="floating-layer-abnormal-icon">
+						<img src="img/abnormal.png"/>
+					</div>
+					<div class="floating-layer-abnormal-desc">不好意思，网络出现故障，请稍后再试</div>
+					<div class="floating-layer-abnormal-btn floatingLayerAbnormalBtn btn">返回</div>
+					<div class="floating-layer-abnormal-close floatingLayerAbnormalClose close"></div>
 				</div>
 
 			</div>
@@ -235,6 +259,7 @@
 		<script src="common/js/iscroll.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/CopyDomContent.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/RenderingComponent.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">

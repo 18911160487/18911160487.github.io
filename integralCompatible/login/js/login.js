@@ -29,23 +29,36 @@ $('.btn-ok').on('click', function() {
 		}
 		return;
 	}
+	location.hostname == "127.0.0.1" ?
 	$.ajax({
-		type: "POST",
-		//url: "https://m.chinaamc.com/mphone/mp/api/login", //生产环境
-		url: "http://mtest.chinaamc.com/mphoneAnt/mp/api/login", //测试环境
-		data: msg,
-		success: function(result) {
-			if(result.result == '0000') {
+		type:"get",
+		url:"json/login.json",
+		success: function(res) {
+			if(res.result == '0000') {
 				$('#login').hide();
 				if(window.accountLoginSuccess) {
 					window.accountLoginSuccess();
 				}
-			} else if(result.result == '9999') {
-				alert(result.msg);
+			}
+		}
+	}) :
+	$.ajax({
+		type: "POST",
+		url: common_utils.commonUrl + "/api/login",
+		data: msg,
+		success: function(res) {
+			//alert(JSON.stringify(res));
+			if(res.result == '0000') {
+				$('#login').hide();
+				if(window.accountLoginSuccess) {
+					window.accountLoginSuccess();
+				}
+			} else if(res.result == '9999') {
+				shieldlayerToast(res.msg);
 			}
 		},
 		error: function() {
-			alert('网络异常，请稍后再试！');
+			shieldlayerToast('网络异常，请稍后再试！');
 		}
 	});
 });
