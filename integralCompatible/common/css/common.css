@@ -1,3 +1,4 @@
+
 .clear:after {
 	display: block;
 	overflow: hidden;
@@ -29,29 +30,4 @@ img.bg {
 
 .hide {
 	display: none
-}
-
-.abnormal {
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background: #FFFFFF;
-	z-index: 100;
-	overflow: hidden
-}
-
-.abnormal img {
-	width: 100%
-}
-
-.abnormal-refresh {
-	width: 1.8rem;
-	height: 0.76rem;
-	position: absolute;
-	left: 50%;
-	top: 7.3rem;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%)
 }

@@ -117,7 +117,7 @@
 			};
 			$.fn.RangeSlider = function(cfg) {
 				$(this).attr('min', cfg.min).attr('max', cfg.max).attr('step', cfg.step).attr('value', cfg.range);
-				$(this).css('background', 'linear-gradient( to right,rgba(0,0,0,0) ' + cfg.range + '%, rgba(0,0,0,0) 0%)');
+				$(this).css('background', 'linear-gradient(to right, rgb(255, 255, 255) 15%, rgb(17, 30, 57) 0%)');
 				$(this).on("input", function(e) {
 					console.log(this.value)
 					$(this).attr('value', this.value).css('background', 'linear-gradient( to right,rgba(0,0,0,0) ' + this.value + '%, rgba(0,0,0,0) 0%)');

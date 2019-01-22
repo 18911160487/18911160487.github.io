@@ -1,12 +1,13 @@
 {
 	"code": "0000",
 	"data": {
-		"businessType": "2",
+		"businessType": "3",
 		"virtualCode": "FFFXXX888089",
 		"userName": "诸葛",
 		"phoneNo": "18600546569",
 		"address": "北京市朝阳区酒仙桥路14号兆维工业园",
 		"todayPoints": 99,
 		"myPoints": 8888
-	}
+	},
+	"msg": "抱歉，兑换失败 礼品已被抢完，下次早点来吧"
 }

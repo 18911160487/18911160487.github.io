@@ -59,7 +59,7 @@
 					html += `<div class="container-page page">`;
 					if(this.length >= 7) {
 						for(var i = 1; i <= 7; i++) {
-							html += (i == 2 || i == 7 ? `<div class="ellipsis">...</div>` : ``) ;
+							html += (i == 2 || i == 7 ? `<div class="ellipsis">...</div>` : ``);
 							html += `<div class="container-btn">${i}</div>`;
 						}
 					} else {
@@ -81,13 +81,16 @@
 					this.next.on("click", $.proxy(this.handleNextClick, this));
 				},
 				handlePrevClick() {
-					this.defaultSelectDom(this.index = this.index-- <= 1 ? 1 : this.index);
+					this.index--;
+					this.defaultSelectDom(this.index <= 1 ? 1 : this.index);
 				},
 				handlePageListClick(e) {
+					this.index = parseInt($(e.currentTarget).html());
 					this.defaultSelectDom(parseInt($(e.currentTarget).html()));
 				},
 				handleNextClick() {
-					this.defaultSelectDom(this.index = this.index++ >= this.length ? this.length : this.index);
+					this.index++;
+					this.defaultSelectDom(this.index >= this.length ? this.length : this.index);
 				},
 				defaultSelectDom(index) {
 					if(this.container.find(".changeStyle") && this.temp == index) { //防止用户多次点击同一页,增加dom的渲染性能
@@ -98,7 +101,7 @@
 						this.pageListMsg = (this.temp = index) >= 5 && index <= this.length - 4 && [1, index - 2, index - 1, index, index + 1, index + 2, this.length] ||
 							index > this.length - 4 && [1, this.length - 5, this.length - 4, this.length - 3, this.length - 2, this.length - 1, this.length] ||
 							index < 5 && [1, 2, 3, 4, 5, 6, this.length] || (this.pageListMsg = []);
-						this.ellipsis.eq(index < 5 ? 0 : index > this.length - 5 ? 1 : this.ellipsis.length).hide();
+						this.ellipsis.eq(index < 5 ? 0 : index > this.length - 4 ? 1 : this.ellipsis.length).hide();
 					} else {
 						for(var i = 1; i <= this.length; i++) {
 							this.pageListMsg.push(i);;

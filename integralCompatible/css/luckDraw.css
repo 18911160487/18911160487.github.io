@@ -1,0 +1,305 @@
+.clear:after {
+	display: block;
+	overflow: hidden;
+	clear: both;
+	content: '';
+	height: 0;
+}
+
+.luck-wrapper {
+	width: 100%;
+	background-color: #0f133b;
+	padding-top: 3.2rem;
+	background: #0f133b url(../img/luckDraw/homeBg.png) top left no-repeat;
+	background-size: 100% auto;
+}
+
+.luck-draw {
+	width: 100%;
+	position: relative;
+}
+
+.luck-draw-bg {
+	font-size: 0;
+}
+
+.luck-draw-bg {
+	font-size: 0;
+}
+
+.luck-draw-bg,
+.luck-draw img {
+	width: 100%;
+}
+
+.luck-draw-count,
+.luck-draw-integral {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	line-height: 1;
+	color: #c55d05;
+	text-align: center;
+	font-weight: bold;
+}
+
+.luck-draw-count {
+	top: .13rem;
+	font-size: .3rem;
+}
+
+.luck-draw-integral {
+	top: 1.09rem;
+	font-size: .26rem;
+}
+
+.luck-draw-count span,
+.luck-draw-integral span {
+	font-weight: normal;
+	color: #5c2200;
+	line-height: 1.2;
+}
+
+.luck-draw-border-light {
+	width: 6.26rem;
+	position: absolute;
+	left: .66rem;
+	top: 1.12rem;
+}
+
+.luck-draw-container {
+	width: 4.98rem;
+	height: 4.98rem;
+	position: absolute;
+	left: 50%;
+	top: 21.5%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.luck-draw-each,
+.luck-draw-btn {
+	float: left;
+	width: 1.46rem;
+	height: 1.46rem;
+	margin: .1rem;
+	border-radius: .16rem;
+	overflow: hidden;
+	font-size: 0;
+	position: relative;
+}
+
+.luck-draw-each.changeStyle:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .2);
+}
+
+.luck-draw-integral-consume {
+	width: 100%;
+	font-size: .2rem;
+	line-height: 1;
+	position: absolute;
+	left: 0;
+	bottom: .13rem;
+	text-align: center;
+	color: #fedfa5;
+}
+
+.prize-list {
+	width: 5.76rem;
+	height: 1.68rem;
+	margin: 0 auto;
+	padding: 0 .44rem 0 .4rem;
+	border-top: .26rem solid #212763;
+	border-bottom: .22rem solid #212763;
+	border-radius: .2rem;
+	background: #212763;
+	font-size: .28rem;
+	line-height: .56rem;
+	overflow: hidden;
+}
+
+.prize-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+.prize-item-userName {
+	text-align: left;
+	color: #f0e5eb;
+}
+
+.prize-item-draw {
+	text-align: center;
+	color: #a9a2b6;
+}
+
+.prize-item-prize {
+	text-align: right;
+	color: #d27908;
+}
+
+.prize-item-userName,
+.prize-item-prize {
+	float: left;
+	width: 44%;
+}
+
+.prize-item-draw {
+	float: left;
+	width: 12%;
+}
+
+.activity-rule {
+	width: 6.6rem;
+	margin: 0 auto;
+	padding: .42rem 0 .64rem 0;
+	font-size: .2rem;
+	line-height: .28rem;
+	color: #dcd1dc;
+}
+
+.activity-rule-container {
+	min-height: 1.13rem;
+	padding-left: .7rem;
+	position: relative;
+}
+
+.activity-rule-title {
+	width: .36rem;
+	height: 100%;
+	position: absolute;
+	left: .1rem;
+	top: 0;
+	border-left: 1px solid #b0a9b9;
+	border-right: 1px solid #b0a9b9;
+	font-size: .24rem;
+	line-height: 1;
+	text-align: center;
+}
+
+.activity-rule-title .live,
+.activity-rule-title .move,
+.activity-rule-title .gauge,
+.activity-rule-title .rule{
+	width: 100%;
+	position: absolute;
+	left: 0;
+}
+
+.activity-rule-title .live {
+	top: 0;
+}
+
+.activity-rule-title .move {
+	top: 28%;
+}
+
+.activity-rule-title .gauge {
+	top: 56%;
+}
+
+.activity-rule-title .rule {
+	bottom: 0;
+}
+
+.popup {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .6);
+	display: none;
+}
+
+.popup-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 5%;
+	text-align: center;
+}
+
+.popup-container-bg {
+	width: 100%;
+}
+
+.popup-container-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 3.4rem;
+	font-size: .34rem;
+	line-height: 1;
+	color: #5c2200;
+	font-weight: 300;
+}
+
+.popup-container-title span {
+	font-size: .56rem;
+	font-weight: 500;
+}
+
+.popup-container-desc {
+	width: 2.7rem;
+	height: .72rem;
+	position: absolute;
+	left: 50%;
+	bottom: 1.66rem;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	font-size: .24rem;
+	line-height: 1.5;
+	color: #FFFFFF;
+}
+
+.popup-container-desc-middle {
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.popup-container-btn {
+	width: 2.56rem;
+	height: .54rem;
+	position: absolute;
+	left: 50%;
+	bottom: .5rem;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	background: url(../img/luckDraw/luckDrawPopupBtn.png) top center no-repeat;
+	background-size: 100% 100%;
+}
+
+.abnormal {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.abnormal img {
+	width: 100%;
+	height: auto;
+}
+
+.abnormal-btn {
+	width: 4.6rem;
+	height: .92rem;
+	position: absolute;
+	left: 1.44rem;
+	top: 7.2rem;
+}

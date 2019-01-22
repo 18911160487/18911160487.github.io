@@ -68,6 +68,7 @@ html {
 	min-height: 100%
 }
 
+
 /*body {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -88,11 +89,19 @@ textarea {
 	font-size: 0.32rem;
 	line-height: 1.5;
 	color: #333;
-	font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif
+	font-family: "microsoft yahei", Arial, Helvetica, sans-serif, Pingfang SC, Helvetica Neue, STHeiTi
 }
 
 input {
 	line-height: normal
+}
+
+input[type=button] {
+	outline: none;
+	border: 0px solid transparent;
+	border: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 a {
@@ -101,6 +110,7 @@ a {
 	text-decoration: none;
 	outline: none
 }
+
 
 /**[contenteditable] {
 	-webkit-user-select: auto !important
