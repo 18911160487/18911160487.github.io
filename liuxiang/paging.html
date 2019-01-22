@@ -81,16 +81,13 @@
 					this.next.on("click", $.proxy(this.handleNextClick, this));
 				},
 				handlePrevClick() {
-					this.index--;
-					this.defaultSelectDom(this.index <= 1 ? 1 : this.index);
+					this.defaultSelectDom(this.index = this.index-- <= 1 ? 1 : this.index);
 				},
 				handlePageListClick(e) {
-					this.index = parseInt($(e.currentTarget).html());
-					this.defaultSelectDom(parseInt($(e.currentTarget).html()));
+					this.defaultSelectDom(this.index =  parseInt($(e.currentTarget).html()));
 				},
 				handleNextClick() {
-					this.index++;
-					this.defaultSelectDom(this.index >= this.length ? this.length : this.index);
+					this.defaultSelectDom(this.index = this.index++ >= this.length ? this.length : this.index);
 				},
 				defaultSelectDom(index) {
 					if(this.container.find(".changeStyle") && this.temp == index) { //防止用户多次点击同一页,增加dom的渲染性能
