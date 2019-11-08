@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body style="height: 100%; margin: 0">
+		<div id="container" style="height: 100%"></div>
+		<script type="text/javascript" src="https://cdn.bootcss.com/echarts/3.0.0/echarts.js"></script>
+		<script src="js/jq3_2_1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			var app = {};
+			option = null;
+			option = {
+				title: {
+					text: '折线图堆叠'
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						lineStyle: {
+							color: "#f00"
+						}
+					},
+					formatter: function(szlb) {
+						if(szlb[0].value == undefined || szlb[0].value == null) {
+							option.tooltip.axisPointer.lineStyle.color = "#fff";
+							myChart.setOption(option);
+						} else {
+							option.tooltip.axisPointer.lineStyle.color = "#f00";
+							myChart.setOption(option);
+						}
+					}
+				},
+				legend: {
+					data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+				},
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					containLabel: true
+				},
+				toolbox: {
+					feature: {
+						saveAsImage: {}
+					}
+				},
+				xAxis: {
+					type: 'category',
+					boundaryGap: false,
+					data: [1, 2, 3, 4, 5, 6, 7],
+					axisLabel: {
+						interval: 2, //0：表示全部显示不间隔；auto:表示自动根据刻度个数和宽度自动设置间隔个数
+						formatter: function(val) {
+							if(val == 1) {
+								val = "09:30"
+							}
+							if(val == 4 || val == 5) {
+								val = "11:30/13:30"
+							}
+							if(val == 7) {
+								val = "15:00"
+							}
+							return val;
+						}
+					},
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					name: '联盟广告',
+					type: 'line',
+					stack: '总量',
+					data: [120, 132, 101, 134, null, null, null],
+				}]
+			};;
+			if(option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
+			$("#container").on("touchend", function() {
+				setTimeout(function() {
+					myChart.setOption({
+						tooltip: {
+							axisPointer: {
+								lineStyle: {
+									color: "#fff"
+								}
+							}
+						}
+					});
+				}, 3000)
+			})
+			$("#container").on("touchstart", function() {
+				myChart.setOption(option);
+			})
+		</script>
+	</body>
+
+</html>
